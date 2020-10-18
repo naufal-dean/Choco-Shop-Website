@@ -65,22 +65,24 @@ class Router
         $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // Check if uri exists
-        if (!array_key_exists($requestUri, self::$routes)) {
-            http_response_code(404);
-            exit();
-        }
-        $uriRoutes = self::$routes[$requestUri];
+        foreach (self::$routes as $path=>$route) {
+            if (preg_match("(".$path.")", $requestUri)) {
+                $uriRoutes = self::$routes[$path];
 
-        // Check if method exists
-        if (!array_key_exists($_SERVER['REQUEST_METHOD'], $uriRoutes)) {
-            http_response_code(405);
-            exit();
-        }
-        $action = $uriRoutes[$_SERVER['REQUEST_METHOD']];
-
-        // Exec action and echo result
-        list($controllerName, $controllerMethod) = explode('@', $action);
-        echo self::createController($controllerName)->$controllerMethod();
+                // Check if method exists
+                if (!array_key_exists($_SERVER['REQUEST_METHOD'], $uriRoutes)) {
+                    http_response_code(405);
+                    exit();
+                }
+                $action = $uriRoutes[$_SERVER['REQUEST_METHOD']];
+        
+                // Exec action and echo result
+                list($controllerName, $controllerMethod) = explode('@', $action);
+                echo self::createController($controllerName)->$controllerMethod();        
+            }
+        }        
+        http_response_code(404);
+        exit();
     }
 
     /**
