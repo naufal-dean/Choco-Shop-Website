@@ -2,11 +2,7 @@
 
 require_once __DIR__.'/../bootstrap/app.php';
 
+// TODO: maybe implement autoloading
 require_once __DIR__.'/../app/Controllers/Controller.php';
 
-$controller = new Controller();
-
-echo $controller->respondSuccess('this is test message', [
-    'some' => 'test',
-    'random' => 'data',
-], 201);
+Router::run();

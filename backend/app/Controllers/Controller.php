@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Controllers;
 
 class Controller
 {
@@ -58,5 +59,19 @@ class Controller
      */
     public function respondErrorCode($message, $statusCode) {
         return $this->respondError($message, null, $statusCode);
+    }
+
+    public function test() {
+        return $this->respondSuccess('this is test message', [
+            'some' => 'test',
+            'random' => 'data',
+        ], 201);
+    }
+
+    public function test2() {
+        return $this->respondSuccess('this is another test message', [
+            'another' => 'random',
+            'test' => 'data',
+        ], 500);
     }
 }
