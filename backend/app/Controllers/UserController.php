@@ -13,6 +13,11 @@ class UserController extends Controller
     }
 
     public function login() {
+        # Check data availability
+        if (empty($_POST['username']) || empty($_POST['password'])) {
+            return $this->respondError('Please enter username and password', null, 400);
+        }
+
         $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = ? and password = ?;');
         $res->bind_param('ss', $_POST['username'], $_POST['password']);
         $res->execute();
@@ -25,7 +30,7 @@ class UserController extends Controller
         session_start();
         $_SESSION['id'] = $res['id'];
         $_SESSION['username'] = $_POST['username'];
-        return $this->respondSuccess('Successfully login', null, 2010;
+        return $this->respondSuccess('Successfully login', null, 200);
     }
 
     public function logout() {
@@ -34,6 +39,11 @@ class UserController extends Controller
     }
 
     public function register() {
+        # Check data availability
+        if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password'])) {
+            return $this->respondError('Please enter username, email, and password', null, 400);
+        }
+
         # Format checking
         if (preg_match('(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z]+$)', $_POST["email"]) == 0) {
             return $this->respondError('Please enter a correct email', null, 400);
@@ -70,6 +80,8 @@ class UserController extends Controller
         $res = $res->get_result()->fetch_assoc();
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
+        } else if (!$res) {
+            return $this->respondError('User Not Found', null, 404);
         }
         return $this->respondSuccess('Success', $res, 200);
     }
