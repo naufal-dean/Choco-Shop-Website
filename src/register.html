@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register - Choco Shop</title>
+        <link rel="stylesheet" href="form.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="container">
+            <div id="form-container">
+                <div id="form-title">
+                    <h1>Willy Wangky Choco Factory</h1>
+                </div>
+                <br>
+                <form id="form-box" method="POST" action="">
+                    <label class="form-input-label" for="username">Email</label><br>
+                    <div class="form-input-box-container">
+                        <input class="form-input-box" onkeyup="checkEmail()" type="email" id="email" name="email" required>
+                        <span class="form-input-box-dummy"></span>
+                    </div>
+                    <label class="form-input-label" for="username">Username</label><br>
+                    <div class="form-input-box-container">
+                        <input class="form-input-box" onkeyup="checkUsername()" type="text" id="username" name="username" pattern="[A-Za-z0-9_]+" title="Username must contains alphanumberic and underscores only" required>
+                        <span class="form-input-box-dummy"></span>
+                    </div>
+                    <label class="form-input-label" for="password">Password</label><br>
+                    <div class="form-input-box-container">
+                        <input class="form-input-box" onkeyup="checkPassword()" type="password" id="password" name="password" required>
+                        <span class="form-input-box-dummy"></span>
+                    </div>
+                    <label class="form-input-label" for="password">Confirm Password</label><br>
+                    <div class="form-input-box-container">
+                        <input class="form-input-box" onkeyup="checkPassword()" id="confirm_password" type="password">
+                        <span class="form-input-box-dummy"></span>
+                    </div>
+                    <br>
+                    <input class="form-input-submit" type="submit" value="submit">
+                    <ul id="error-box"></ul>
+                </form>
+            </div>
+        </div>
+        <script>
+            var valid = {"password": true, "email": true, "username": true}
+            function callError() {
+                var error = document.getElementById("error-box")
+                error.textContent = ""
+                if (!valid["email"]) {
+                    var temp = document.createElement("li")
+                    temp.textContent = "Someone already used the email"
+                    error.appendChild(temp);
+                }
+                if (!valid["username"]) {
+                    var temp = document.createElement("li")
+                    temp.textContent = "Someone already used the username"
+                    error.appendChild(temp);
+                }
+                if (!valid["password"]) {
+                    var temp = document.createElement("li")
+                    temp.textContent = "Please enter the same password"
+                    error.appendChild(temp);
+                }
+            }
+            function checkPassword() {
+                var confirmPassword = document.getElementById("confirm_password")
+                var password = document.getElementById("password")
+                confirmPassword.classList.toggle("form-input-error", confirmPassword.value != password.value)
+                password.classList.toggle("form-input-valid", password.value && confirmPassword.value == password.value)
+                confirmPassword.classList.toggle("form-input-valid", password.value && confirmPassword.value == password.value)
+                valid["password"] = confirmPassword.value == password.value
+                callError()
+            }
+            function checkEmail() {
+                var email = document.getElementById("email")
+                var xhr = XMLHttpRequest()
+                xhr.onreadystatechange = () => {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var res = JSON.parse(this.responseText)
+                        email.classList.toggle("form-input-error", !res["valid"])
+                        valid["email"] = res["valid"]
+                        callError()
+                    }
+                }
+                xhr.open("POST", "")
+                xhr.send(email.value)
+            }
+            function checkUsername() {
+                var username = document.getElementById("username")
+                var xhr = XMLHttpRequest()
+                xhr.onreadystatechange = () => {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var res = JSON.parse(this.responseText)
+                        username.classList.toggle("form-input-error", !res["valid"])
+                        valid["username"] = res["valid"]
+                        callError()
+                    }
+                }
+                xhr.open("POST", "")
+                xhr.send(username.value)
+            }
+        </script>
+    </body>
+</html>
