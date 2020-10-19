@@ -16,9 +16,12 @@ class Router
         if (!in_array($method, self::$allowedMethods)) {
             throw new Exception('Invalid method supplied: '.$method);
         }
+        # Support with & without slash
+        if ($uri[strlen($uri)-1] == "/") $uri .= "?";
+        else $uri .= "/?";
 
         // TODO: check if action controller and controller method exists
-        self::$routes[$uri][$method] = $action;
+        self::$routes[str_replace("/", "\\/", $uri)][$method] = $action;
     }
 
     /**
@@ -62,11 +65,11 @@ class Router
      */
     public static function run() {
         // TODO: unify url path format
-        $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $requestUri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
         // Check if uri exists
         foreach (self::$routes as $path=>$route) {
-            if (preg_match("(".$path.")", $requestUri)) {
+            if (preg_match("(^".$path."$)", $requestUri)) {
                 $uriRoutes = self::$routes[$path];
 
                 // Check if method exists
