@@ -14,16 +14,17 @@ class DatabaseConnection
             throw new Exception("Connection failed: " . self::$conn->connect_error);
         }
         self::$conn->query("CREATE DATABASE ".$envs["DB_DATABASE"]);
+        self::$conn->begin_transaction();
         self::$conn->select_db($envs["DB_DATABASE"]);
-        self::$conn->multi_query("
+        self::$conn->query("
         CREATE TABLE IF NOT EXISTS user (
             id int PRIMARY KEY,
             username varchar(100),
             email varchar(100),
             password varchar(100),
             is_superuser bit
-        );
-        
+        );");
+        self::$conn->query("
         CREATE TABLE IF NOT EXISTS chocolate (
             id int PRIMARY KEY,
             name varchar(100),
@@ -32,8 +33,8 @@ class DatabaseConnection
             image BLOB,
             stock int,
             sold int
-        );
-        
+        );");
+        self::$conn->query("
         CREATE TABLE IF NOT EXISTS transaction (
             id int PRIMARY KEY,
             chocolate int,
@@ -44,5 +45,21 @@ class DatabaseConnection
             transaction_time time,
             FOREIGN KEY (chocolate) REFERENCES chocolate(id)
         );");
+        self::$conn->commit();
+    }
+
+    /**
+     * @param string $query
+     * @return array $data
+     * @throws Exception
+     */
+    public static function execute_query($query) {
+        $res = self::$conn->query($query);
+        if (!$res) {
+            return false;
+        }
+        $data = $res->fetch_all(MYSQLI_ASSOC);
+        $res->free_result();
+        return $data;
     }
 }
