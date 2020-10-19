@@ -9,7 +9,7 @@ class UserController extends Controller
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
         }
-        return $this->respondSuccess('Success', $res, 201);
+        return $this->respondSuccess('Success', $res, 200);
     }
 
     public function login() {
@@ -25,12 +25,12 @@ class UserController extends Controller
         session_start();
         $_SESSION['id'] = $res['id'];
         $_SESSION['username'] = $_POST['username'];
-        return $this->respondSuccess('Successfully login', null, 201);
+        return $this->respondSuccess('Successfully login', null, 2010;
     }
 
     public function logout() {
         session_destroy();
-        return $this->respondSuccess('Successfully logout', null, 201);
+        return $this->respondSuccess('Successfully logout', null, 200);
     }
 
     public function register() {
@@ -71,7 +71,7 @@ class UserController extends Controller
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
         }
-        return $this->respondSuccess('Success', $res, 201);
+        return $this->respondSuccess('Success', $res, 200);
     }
 
     public function email_lookup() {
@@ -82,7 +82,7 @@ class UserController extends Controller
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
         }
-        return $this->respondSuccess('Success', $res, 201);
+        return $this->respondSuccess('Success', $res, 200);
     }
 
     public function username_lookup() {
@@ -93,7 +93,7 @@ class UserController extends Controller
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
         }
-        return $this->respondSuccess('Success', $res, 201);
+        return $this->respondSuccess('Success', $res, 200);
     }
 
 }
