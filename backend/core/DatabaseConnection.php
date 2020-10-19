@@ -18,7 +18,7 @@ class DatabaseConnection
         self::$conn->select_db($envs["DB_DATABASE"]);
         self::$conn->query("
         CREATE TABLE IF NOT EXISTS user (
-            id int PRIMARY KEY,
+            id int PRIMARY KEY AUTO_INCREMENT,
             username varchar(100),
             email varchar(100),
             password varchar(100),
@@ -26,7 +26,7 @@ class DatabaseConnection
         );");
         self::$conn->query("
         CREATE TABLE IF NOT EXISTS chocolate (
-            id int PRIMARY KEY,
+            id int PRIMARY KEY AUTO_INCREMENT,
             name varchar(100),
             price int,
             description varchar(500),
@@ -36,7 +36,7 @@ class DatabaseConnection
         );");
         self::$conn->query("
         CREATE TABLE IF NOT EXISTS transaction (
-            id int PRIMARY KEY,
+            id int PRIMARY KEY AUTO_INCREMENT,
             chocolate int,
             amount int,
             total_price bigint,
@@ -71,7 +71,7 @@ class DatabaseConnection
         if (!$res) {
             return false;
         }
-        $data = $res->fetch_assoc();
+        $data = $res->fetch_all(MYSQLI_ASSOC);
         $res->free_result();
         return $data;
     }
