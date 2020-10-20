@@ -18,7 +18,7 @@ class UserController extends Controller
             return $this->respondError('Please enter username and password', null, 400);
         }
 
-        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = ? and password = ?;');
+        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ? and password = BINARY ?;');
         $res->bind_param('ss', $_POST['username'], $_POST['password']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
@@ -53,7 +53,7 @@ class UserController extends Controller
         }
 
         # Username & email must be unique
-        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = ? or email = ?;');
+        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ? or email = BINARY ?;');
         $res->bind_param('ss', $_POST['username'], $_POST['email']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
@@ -63,12 +63,20 @@ class UserController extends Controller
             return $this->respondError('Email or username has been used already', null, 400);
         }
 
+        # Register user
         $res = \DatabaseConnection::prepare_query('INSERT INTO user (username, email, password, is_superuser) VALUES (?, ?, ?, 1);');
         $res->bind_param('sss', $_POST['username'], $_POST['email'], $_POST['password']);
         $res->execute();
+
+        # Login user
+        $res = \DatabaseConnection::prepare_query('SELECT id FROM user WHERE username = BINARY ?;');
+        $res->bind_param('s', $_POST['username']);
+        $res->execute();
+        $res = $res->get_result()->fetch_assoc();
         session_start();
-        $_SESSION['id'] = $res['id'];
+        $_SESSION['id'] = $account['id'];
         $_SESSION['username'] = $_POST['username'];
+
         return $this->respondSuccess('Successfully register', null, 201);
     }
 
@@ -87,7 +95,7 @@ class UserController extends Controller
     }
 
     public function email_lookup() {
-        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE email = ?;');
+        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE email = BINARY ?;');
         $res->bind_param('s', $_GET['value']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
@@ -98,7 +106,7 @@ class UserController extends Controller
     }
 
     public function username_lookup() {
-        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = ?;');
+        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ?;');
         $res->bind_param('s', $_GET['value']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();

@@ -2,8 +2,8 @@
 
 # User Api
 Router::get('/users/', 'UserController@show_users');
-Router::post('/users/', 'UserController@login');
-Router::put('/users/', 'UserController@register');
+Router::post('/users/login/', 'UserController@login');
+Router::post('/users/register/', 'UserController@register');
 Router::get('/users/([1-9]+)/', 'UserController@id_lookup');
 Router::get('/users/username_lookup/', 'UserController@username_lookup');
 Router::get('/users/email_lookup/', 'UserController@email_lookup');
