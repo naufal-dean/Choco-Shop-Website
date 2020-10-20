@@ -12,11 +12,12 @@ class DatabaseConnection
         if (self::$conn->connect_error) {
             throw new Exception("Connection failed: " . self::$conn->connect_error);
         }
+        self::$conn->select_db(getenv("DB_DATABASE"));
     }
 
     /**
      * @param string $query
-     * @return array $data
+     * @return array|bool
      * @throws Exception
      */
     public static function prepare_query($query) {
@@ -29,7 +30,7 @@ class DatabaseConnection
 
     /**
      * @param string $query
-     * @return array $data
+     * @return array|bool
      * @throws Exception
      */
     public static function execute_query($query) {
