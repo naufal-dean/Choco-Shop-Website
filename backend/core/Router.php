@@ -82,8 +82,9 @@ class Router
                 // Exec action and echo result
                 list($controllerName, $controllerMethod) = explode('@', $action);
                 echo self::createController($controllerName)->$controllerMethod();
+                exit();
             }
-        }        
+        }
         http_response_code(404);
         exit();
     }
