@@ -78,7 +78,7 @@ function callRegister(e) {
         if (this.readyState == 4) {
             var res = JSON.parse(this.responseText)
             if (this.status == 201) {
-                location.href = "/index.html"
+                location.href = "index.html"
             } else {
                 valid["register"] = false
                 callError()
