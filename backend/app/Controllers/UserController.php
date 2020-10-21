@@ -74,7 +74,7 @@ class UserController extends Controller
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
         session_start();
-        $_SESSION['id'] = $account['id'];
+        $_SESSION['id'] = $res['id'];
         $_SESSION['username'] = $_POST['username'];
 
         return $this->respondSuccess('Successfully register', null, 201);
