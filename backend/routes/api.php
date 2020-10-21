@@ -7,6 +7,7 @@ Router::post('/users/register/', 'UserController@register');
 Router::get('/users/([1-9]+)/', 'UserController@id_lookup');
 Router::get('/users/username_lookup/', 'UserController@username_lookup');
 Router::get('/users/email_lookup/', 'UserController@email_lookup');
+Router::get('/users/auth_check/', 'UserController@auth_check');
 
 # Chocolate Api
 Router::get('/chocolates/', 'ChocolateController@show_top_selling_chocolates');
