@@ -15,7 +15,7 @@ Router::get('/chocolates/find/', 'ChocolateController@find_chocolates');
 Router::put('/chocolates/buy/([1-9]+)', 'ChocolateController@buy_chocolate');
 
 # Transactions Api
-Router::get('/transactions/', 'TransactionController@post_user_transactions');
+Router::get('/transactions/', 'TransactionController@get_user_transactions');
 
 # Testing purposes
 Router::get('/uri/', 'Controller@test');
