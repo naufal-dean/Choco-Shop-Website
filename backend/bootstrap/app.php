@@ -10,3 +10,6 @@ require_once __DIR__.'/../core/DatabaseConnection.php';
 
 // Include routes
 require_once __DIR__.'/../routes/api.php';
+
+// Init database connection
+DatabaseConnection::init();
