@@ -13,6 +13,7 @@ Router::get('/chocolates/', 'ChocolateController@show_top_selling_chocolates');
 Router::get('/chocolates/([1-9]+)/', 'ChocolateController@id_lookup');
 Router::get('/chocolates/find/', 'ChocolateController@find_chocolates');
 Router::put('/chocolates/buy/([1-9]+)', 'ChocolateController@buy_chocolate');
+Router::put('/chocolates/add/', 'ChocolateController@add_chocolate');
 
 # Transactions Api
 Router::get('/transactions/', 'TransactionController@get_user_transactions');
