@@ -15,4 +15,8 @@ class PageController extends Controller
     public function dashboard_page() {
         include("../pages/dashboard.php");
     }
+
+    public function add_chocolate_page() {
+        include("../pages/add_chocolate.php");
+    }
 }

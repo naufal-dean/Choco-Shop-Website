@@ -41,20 +41,28 @@ class ChocolateController extends Controller
         // name varchar(100),
         // price int,
         // description varchar(500),
-        // image BLOB,
         // stock int,
-        $res = \DatabaseConnection::prepare_query('INSERT INTO chocolate (name, price, description, image, stock) VALUES (?, ?, ?, ?, ?);');
-        if ($_FILES['image']['error'] == UPLOAD_ERR_OK) {
-            $imgData = file_get_contents($_FILES['image']['tmp_name']);
-            // TODO: cek nama, harga, deskripsi, dan stock apa udh valid ato belom
-            if (true) {
-                $res->bind_param('sisbi', $_POST['name'], $_POST['price'], $_POST['description'], base64_encode($imgData), $_POST['stock']);
+        $res = \DatabaseConnection::prepare_query('INSERT INTO chocolate (name, price, description, stock, sold) VALUES (?, ?, ?, ?, 0);');
+        if ($res) {
+            if ($_FILES['image']['error'] == UPLOAD_ERR_OK) {
+                $res->bind_param('sisi', $_POST['name'], $_POST['price'], $_POST['description'], $_POST['amount']);
                 if ($res->execute()) {
-                    return $this->respondSuccessCode('Chocolate inserted', 200);
+                    $tmp = explode('.', basename($_FILES['image']['name']));
+                    $ext = end($tmp);
+                    $id = \DatabaseConnection::get_insert_id();
+                    $file_name = 'chocolate_' . $id . '.' . $ext;
+                    $target_file = __DIR__.'/../../public/static/'.$file_name;
+                    move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+                    return $this->respondSuccessCode('New chocolate added!', 200);
+                } else {
+                    return $this->respondErrorCode('Query didnt work!', 500);
                 }
+            } else {
+                return $this->respondErrorCode($_FILES['image']['error'], 400);
             }
+        } else {
+            return $this->respondErrorCode("Query wasnt prepared!", 500);
         }
-        return $this->respondErrorCode('Invalid data', 400);
     }
 
     // TODO: Update chocolate data & Create transaction

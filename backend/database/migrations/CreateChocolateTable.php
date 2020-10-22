@@ -11,7 +11,6 @@ class CreateChocolateTable
             name varchar(100),
             price int,
             description varchar(500),
-            image BLOB,
             stock int,
             sold int
         );");

@@ -42,4 +42,8 @@ class DatabaseConnection
         $res->free_result();
         return $data;
     }
+
+    public static function get_insert_id() {
+        return self::$conn->insert_id;
+    }
 }
