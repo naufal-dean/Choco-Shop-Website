@@ -17,7 +17,7 @@ class DatabaseConnection
 
     /**
      * @param string $query
-     * @return array|bool
+     * @return mysqli_stmt|bool
      * @throws Exception
      */
     public static function prepare_query($query) {

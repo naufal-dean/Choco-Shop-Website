@@ -37,6 +37,26 @@ class ChocolateController extends Controller
         return $this->respondSuccess('Success', $res, 200);
     }
 
+    public function add_chocolate() {
+        // name varchar(100),
+        // price int,
+        // description varchar(500),
+        // image BLOB,
+        // stock int,
+        $res = \DatabaseConnection::prepare_query('INSERT INTO chocolate (name, price, description, image, stock) VALUES (?, ?, ?, ?, ?);');
+        if ($_FILES['image']['error'] == UPLOAD_ERR_OK) {
+            $imgData = file_get_contents($_FILES['image']['tmp_name']);
+            // TODO: cek nama, harga, deskripsi, dan stock apa udh valid ato belom
+            if (true) {
+                $res->bind_param('sisbi', $_POST['name'], $_POST['price'], $_POST['description'], base64_encode($imgData), $_POST['stock']);
+                if ($res->execute()) {
+                    return $this->respondSuccessCode('Chocolate inserted', 200);
+                }
+            }
+        }
+        return $this->respondErrorCode('Invalid data', 400);
+    }
+
     // TODO: Update chocolate data & Create transaction
     public function buy_chocolate() {
         session_start();
