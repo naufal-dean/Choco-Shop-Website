@@ -16,13 +16,13 @@ function callLogin(e) {
             var res = JSON.parse(this.responseText)
             console.log(this.getAllResponseHeaders())
             if (this.status == 200) {
-                location.href = "index.html"
+                location.href = "/"
             } else {
                 callError()
             }         
         }
     }
-    xhr.open("POST", "")
+    xhr.open("POST", "/api/users/login")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`username=${username}&password=${password}`)
 }
