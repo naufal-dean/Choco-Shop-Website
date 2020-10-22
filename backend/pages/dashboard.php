@@ -20,7 +20,7 @@
         </div>
         <div id="container">
             <div id="welcome">
-                <h2>Hello, Wangky</h2>
+                <h2>Hello, <?php echo $row['username']; ?></h2>
             </div>
             <div id="chocolates-container">
                 <div class="chocolate-container">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <script src="static/js/authchecker.js">
+        <!-- <script src="static/js/authchecker.js"> -->
         </script>
     </body>
 </html> 

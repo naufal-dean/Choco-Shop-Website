@@ -12,20 +12,6 @@ class UserController extends Controller
         return $this->respondSuccess('Success', $res, 200);
     }
 
-    public function auth_check() {
-        if (empty($_COOKIE['CHOCO_SESSION'])) {
-            return $this->respondError('Not Authenticated', null, 403);
-        }
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
-        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
-        $res->execute();
-        $res = $res->get_result()->fetch_assoc();
-        if (!$res) {
-            return $this->respondError('Not Authenticated', null, 403);
-        }
-        return $this->respondSuccess('Authenticated', null, 200);
-    }
-
     public function login() {
         # Check data availability
         if (empty($_POST['username']) || empty($_POST['password'])) {
