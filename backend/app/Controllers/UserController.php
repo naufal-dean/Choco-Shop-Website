@@ -12,6 +12,14 @@ class UserController extends Controller
         return $this->respondSuccess('Success', $res, 200);
     }
 
+    public function auth_check() {
+        session_start();
+        if (empty($_SESSION['id'])) {
+            return $this->respondError('Not Authenticated', null, 403);            
+        }
+        return $this->respondSuccess('Authenticated', null, 200);
+    }
+
     public function login() {
         # Check data availability
         if (empty($_POST['username']) || empty($_POST['password'])) {

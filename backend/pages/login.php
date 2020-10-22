@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Login - Choco Shop</title>
-        <link rel="stylesheet" href="static/css/form.css">
+        <link rel="stylesheet" type="text/css" href="static/css/form.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -12,7 +12,7 @@
                     <h1>Willy Wangky Choco Factory</h1>
                 </div>
                 <br>
-                <form id="form-box" method="POST" action="">
+                <form id="form-box" onsubmit="callLogin(event)">
                     <label class="form-input-label" for="username">Username</label><br>
                     <div class="form-input-box-container">
                         <input class="form-input-box" type="text" id="username" name="username" pattern="[A-Za-z0-9_]+" title="Username must contains alphanumberic and underscores only" required>
@@ -25,6 +25,7 @@
                     </div>
                     <br>
                     <input class="form-input-submit" type="submit" value="submit">
+                    <ul id="error-box"></ul>
                 </form>
             </div>
         </div>

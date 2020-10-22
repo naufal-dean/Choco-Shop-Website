@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-bar {
+    width: 90%;
+    height: 50px;
+    margin: 0;
+    padding: 0 5%;
+    display: flex;
+    background-color: #333;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.nav-menu {
+    text-align: center;
+    padding: 15px 30px;
+    text-decoration: none;
+}
+
+.nav-menu:hover:not(.active) {
+    background-color: #42d1f5;
+}
+
+.active {
+    background-color: #429ef5;
+}
+
+#left-menus, #right-menus {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+#right-menus {
+    justify-content: flex-end;
+}
+
+#search-bar {
+    width: 50%;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#search {
+    width: 80%;
+}
+
+#welcome {
+    padding: 50px 200px;
+}
+
+#chocolates-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chocolate-container {
+    margin: 0 75px 100px 75px;
+    width: 250px;
+    border: 1px solid #000;
+}
+
+.chocolate-image {
+    width: 250px;
+    height: 200px;
+    background-color: darkblue;
+}
+
+.chocolate-desc {
+    padding: 20px;
+}

@@ -47,7 +47,7 @@ function checkEmail(async=true) {
             callError()
         }
     }
-    xhr.open("GET", "http://localhost:5000/users/email_lookup?value="+email.value, async)
+    xhr.open("GET", "/api/users/email_lookup?value="+email.value, async)
     xhr.send()
 }
 
@@ -63,7 +63,7 @@ function checkUsername(async=true) {
             callError()
         }
     }
-    xhr.open("GET", "http://localhost:5000/users/username_lookup?value="+username.value, async)
+    xhr.open("GET", "/api/users/username_lookup?value="+username.value, async)
     xhr.send()
 }
 
@@ -78,14 +78,14 @@ function callRegister(e) {
         if (this.readyState == 4) {
             var res = JSON.parse(this.responseText)
             if (this.status == 201) {
-                location.href = "index.html"
+                location.href = "/"
             } else {
                 valid["register"] = false
                 callError()
             }         
         }
     }
-    xhr.open("POST", "http://localhost:5000/users/register")
+    xhr.open("POST", "/api/users/register")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`username=${username}&email=${email}&password=${password}`)
 }
