@@ -8,10 +8,12 @@ class CreateUserTable
         $conn->query("
         CREATE TABLE IF NOT EXISTS user (
             id int PRIMARY KEY AUTO_INCREMENT,
-            username varchar(100),
-            email varchar(100),
+            username varchar(100) unique,
+            email varchar(100) unique,
             password varchar(100),
-            is_superuser bit
+            is_superuser bit,
+            access_token varchar(64) unique,
+            token_creation_time datetime,
         );");
         $conn->commit();
         echo '[+] Done...'.PHP_EOL;

@@ -13,9 +13,15 @@ class UserController extends Controller
     }
 
     public function auth_check() {
-        session_start();
-        if (empty($_SESSION['id'])) {
-            return $this->respondError('Not Authenticated', null, 403);            
+        if (empty($_COOKIE['CHOCO_SESSION'])) {
+            return $this->respondError('Not Authenticated', null, 403);
+        }
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
+        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
+        $res->execute();
+        $res = $res->get_result()->fetch_assoc();
+        if (!$res) {
+            return $this->respondError('Not Authenticated', null, 403);
         }
         return $this->respondSuccess('Authenticated', null, 200);
     }
@@ -35,14 +41,29 @@ class UserController extends Controller
         } else if (!$res) {
             return $this->respondError('Login failed', null, 401);
         }
-        session_start();
-        $_SESSION['id'] = $res['id'];
-        $_SESSION['username'] = $_POST['username'];
+
+        # Get token (Need to discuss whether we just replace or get the old ones)
+        // $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ? and token_creation_time <= now();');
+        // $res->bind_param('ss', $_POST['username']);
+        // $res->execute();
+        // $res = $res->get_result()->fetch_assoc();
+
+        # Generate token
+        $token = bin2hex(openssl_random_pseudo_bytes(32));
+
+        $res = \DatabaseConnection::prepare_query('UPDATE user SET access_token = ?, token_creation_time = now() WHERE username = BINARY ?;');
+        $res->bind_param('ss', $token, $_POST['username']);
+        $res->execute();
+
+        setcookie('CHOCO_SESSION', $token, time()+3600, '/');
         return $this->respondSuccess('Successfully login', null, 200);
     }
 
     public function logout() {
-        session_destroy();
+        $res = \DatabaseConnection::prepare_query('UPDATE user SET access_token = null, token_creation_time = null WHERE access_token = BINARY ?;');
+        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
+        $res->execute();
+
         return $this->respondSuccess('Successfully logout', null, 200);
     }
 
@@ -81,10 +102,15 @@ class UserController extends Controller
         $res->bind_param('s', $_POST['username']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
-        session_start();
-        $_SESSION['id'] = $res['id'];
-        $_SESSION['username'] = $_POST['username'];
 
+        # Generate token
+        $token = bin2hex(openssl_random_pseudo_bytes(32));
+
+        $res = \DatabaseConnection::prepare_query('UPDATE user SET access_token = ?, token_creation_time = now() WHERE username = BINARY ?;');
+        $res->bind_param('ss', $token, $_POST['username']);
+        $res->execute();
+
+        setcookie('CHOCO_SESSION', $token, time()+3600, '/');
         return $this->respondSuccess('Successfully register', null, 201);
     }
 
