@@ -35,6 +35,7 @@
                     </div>
                     <br>
                     <input class="form-input-submit" type="submit" value="submit">
+                    <input class="form-input-submit green-button" onclick="goLogin()" type="button" value="or login...">
                     <ul id="error-box"></ul>
                 </form>
             </div>

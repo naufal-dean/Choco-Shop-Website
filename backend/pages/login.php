@@ -25,9 +25,11 @@
                     </div>
                     <br>
                     <input class="form-input-submit" type="submit" value="submit">
+                    <input class="form-input-submit green-button" onclick="goRegister()" type="button" value="or register...">
                     <ul id="error-box"></ul>
                 </form>
             </div>
         </div>
+        <script src="static/js/login.js"></script>
     </body>
 </html>

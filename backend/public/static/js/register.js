@@ -90,6 +90,10 @@ function callRegister(e) {
     xhr.send(`username=${username}&email=${email}&password=${password}`)
 }
 
+function goLogin() {
+    location.href = "/login"
+}
+
 checkEmail()
 checkPassword()
 checkUsername()

@@ -135,6 +135,18 @@ input {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.form-input-submit:hover {
+    background-color: gray;
+}
+
+.green-button {
+    background-color: greenyellow;
+}
+
+.green-button:hover {
+    background-color: green;
+}
+
 .form-input-box {
     padding-left: 20px;    
     z-index: 1;

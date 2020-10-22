@@ -19,10 +19,14 @@ function callLogin(e) {
                 location.href = "/"
             } else {
                 callError()
-            }         
+            }
         }
     }
     xhr.open("POST", "/api/users/login")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`username=${username}&password=${password}`)
+}
+
+function goRegister() {
+    location.href = "/register"
 }
