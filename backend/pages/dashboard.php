@@ -3,6 +3,7 @@
     <head>
         <title>Dashboard - Choco Shop</title>
         <link rel="stylesheet" href="static/css/main.css">
+        <link rel="stylesheet" href="static/css/dashboard.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -15,7 +16,7 @@
                 <input type="text" name="search" id="search">
             </form>
             <div id="right-menus">
-                <div class="menu right-menu"><a class="nav-menu">Logout</a></div>
+                <div class="menu right-menu"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
             </div>
         </div>
         <div id="container">
@@ -31,41 +32,8 @@
                         <p>Price Rp. 3000,00</p>
                     </div>
                 </div>
-                <div class="chocolate-container">
-                    <img class="chocolate-image">
-                    <div class="chocolate-desc">
-                        <h2>Choco Name 1</h2>
-                        <p>Amount sold: 6</p>
-                        <p>Price Rp. 3000,00</p>
-                    </div>
-                </div>
-                <div class="chocolate-container">
-                    <img class="chocolate-image">
-                    <div class="chocolate-desc">
-                        <h2>Choco Name 1</h2>
-                        <p>Amount sold: 6</p>
-                        <p>Price Rp. 3000,00</p>
-                    </div>
-                </div>
-                <div class="chocolate-container">
-                    <img class="chocolate-image">
-                    <div class="chocolate-desc">
-                        <h2>Choco Name 1</h2>
-                        <p>Amount sold: 6</p>
-                        <p>Price Rp. 3000,00</p>
-                    </div>
-                </div>
-                <div class="chocolate-container">
-                    <img class="chocolate-image">
-                    <div class="chocolate-desc">
-                        <h2>Choco Name 1</h2>
-                        <p>Amount sold: 6</p>
-                        <p>Price Rp. 3000,00</p>
-                    </div>
-                </div>
             </div>
         </div>
-        <!-- <script src="static/js/authchecker.js"> -->
         </script>
     </body>
 </html> 
