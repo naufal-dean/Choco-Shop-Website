@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class PageController extends Controller
 {
-    public function check_auth() {
+    public function check_auth($check_su=false) {
         if (empty($_COOKIE['CHOCO_SESSION'])) {
             header('Location: /login');
             exit();
@@ -13,6 +13,10 @@ class PageController extends Controller
         $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
+        if ($check_su && !$res['is_superuser']) {
+            header('Location: /');
+            exit();
+        }
         if (!$res) {
             header('Location: /login');
             exit();
@@ -33,7 +37,7 @@ class PageController extends Controller
     }
 
     public function add_chocolate_page() {
-        $row = $this->check_auth();
+        $row = $this->check_auth(true);
         include("../pages/add_chocolate.php");
     }
 }
