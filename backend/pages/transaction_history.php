@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>  
-      <?php include __DIR__.'/../components/header.php' ?>
+      <?php $nav_page = 'transaction_history'; include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Transaction History</h1>
         <div class='transaction-table'>

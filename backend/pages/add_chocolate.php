@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>  
-      <?php include __DIR__.'/../components/header.php' ?>
+      <?php $nav_page = 'add_chocolate'; include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Add New Chocolate</h1>
         <form enctype="multipart/form-data" action='/api/chocolates/add' method="POST">
