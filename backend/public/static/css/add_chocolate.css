@@ -11,30 +11,37 @@ form[action='/api/chocolates/add'] {
 
 .form_pair {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 15px;
 }
 
 .form_input_description {
-  width: 25%;
+  width: 33%;
 }
 
 .form_input {
   font-family: 'Courier New', Courier, monospace;
+  min-width: 450px;
 }
 
-.form_input[type='text'] {
+.form_input[type='text'], .form_input[type='number'], textarea.form_input {
   flex: 1;
+  border-radius: 2px;
+  color: white;
+  background-color: #333;
+  padding: 5px 5px;
 }
 
 .form_input[type='submit'] {
   margin-left: auto;
-  background: none;
+  min-width: initial;
+  color: white;
+  background-color: #333;
   border-radius: 2px;
   border-width: 1px;
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
-textarea.form_input {
-  font-family: 'Courier New', Courier, monospace;
-  flex: 1;
+.form_input[type='submit']:hover {
+  background-color: #42d1f5;
 }

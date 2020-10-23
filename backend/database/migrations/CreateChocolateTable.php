@@ -10,6 +10,7 @@ class CreateChocolateTable
             id int PRIMARY KEY AUTO_INCREMENT,
             name varchar(100),
             price int,
+            image_file_type varchar(7),
             description varchar(500),
             stock int,
             sold int
