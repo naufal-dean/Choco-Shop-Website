@@ -37,6 +37,6 @@
           ?>
         </table>
       </div>
-      <script src="static/js/header.js"></script>
+      <script src="static/js/responsive.js"></script>
     </body>
 </html>

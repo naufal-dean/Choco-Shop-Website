@@ -1,17 +1,25 @@
-<header>
-  <button id='header-home-button' onclick="location.href = '/'" class="header-text-button">Home</a>
-  <?php 
-    if (!isset($header_second_button)) {
-      $header_second_button = 'History';
-      $header_second_button_link = '/transaction_history/';
-    }
-    echo '<button id="header-second-button" onclick="location.href='.$header_second_button_link.'" class="header-text-button">'.$header_second_button.'</button>'
-  ?>
-  <form id="header-search-form" class='header-form'>
-    <input type="text" name="search" id="header-search" class="header-text-input" placeholder="Search">
-    <span class="header-span" id="header-search-icon">🔍</span>
-  </form>
-  <form id="header-logout-form" class='header-form' action='/api/users/logout/' method='POST'>
-    <button class="header-text-button">Logout</a>  
-  </form> 
+<header id="nav-bar">
+    <div id="left-menus" class="menus">
+        <div class="menu"><a class="nav-menu active">Home</a></div>
+        <div class="menu">
+            <?php 
+                if ($row['is_superuser']) {
+                    echo '<a class="nav-menu" href="/add_chocolate">Add 🍫</a>';
+                } else {
+                    echo '<a class="nav-menu" href="/transaction_history>History</a>';
+                }
+            ?>
+        </div>    
+        <div class="menu mobile-only"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
+    </div>
+    <div id="middle-container">
+        <div class="mobile-only" onclick="toggleMenu()"><img id="hamburger" src="static/images/hamburger.svg"></div>
+        <form id="search-bar">
+            <span id="search-logo">🔍</span>
+            <input type="text" name="search" id="search">
+        </form>
+    </div>
+    <div id="right-menus">
+        <div class="menu right-menu"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
+    </div>
 </header>

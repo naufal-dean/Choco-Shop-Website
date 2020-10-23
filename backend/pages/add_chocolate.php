@@ -8,10 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>  
-      <?php 
-      $header_second_button = 'Add New Chocolate';
-      $header_second_button_link = '/add_chocolate';
-      include __DIR__.'/../components/header.php' ?>
+      <?php include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Add New Chocolate</h1>
         <form enctype="multipart/form-data" action='/api/chocolates/add' method="POST">
@@ -39,6 +36,6 @@
           <input class="form_input" type='submit' value='Add Chocolate'>
         </form>
       </div>
-      <script src="static/js/header.js"></script>
+      <script src="static/js/responsive.js"></script>
     </body>
 </html>
