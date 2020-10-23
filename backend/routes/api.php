@@ -3,6 +3,7 @@
 # User Api
 Router::get('/api/users/', 'UserController@show_users');
 Router::post('/api/users/login/', 'UserController@login');
+Router::post('/api/users/logout/', 'UserController@logout');
 Router::post('/api/users/register/', 'UserController@register');
 Router::get('/api/users/([1-9]+)/', 'UserController@id_lookup');
 Router::get('/api/users/username_lookup/', 'UserController@username_lookup');
