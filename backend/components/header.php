@@ -1,5 +1,5 @@
 <header id="nav-bar">
-    <div id="nav-left-menus" class="nav-menus">
+    <div id="nav-left-menus" class="nav-menus nav-hidden">
         <?php 
             $nav_temp_var_1 = '';
             $nav_temp_var_2 = '';
@@ -28,7 +28,7 @@
             <input type="text" name="search" id="nav-search">
         </form>
     </div>
-    <div id="nav-right-menus" class="nav-menus">
+    <div id="nav-right-menus" class="nav-menus nav-hidden">
         <div class="nav-menu"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
     </div>
 </header>
