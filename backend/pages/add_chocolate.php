@@ -2,23 +2,15 @@
 <html>
     <head>
         <title>Add a New Chocolate</title>
-        <link rel="stylesheet" href="static/css/main.css">
+        <link rel="stylesheet" href="static/css/header.css">
         <link rel="stylesheet" href="static/css/rizky.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-      <div id="nav-bar">
-          <div id="left-menus">
-              <div class="menu"><a class="nav-menu active">Home</a></div>
-              <div class="menu" id="switch"><a class="nav-menu">History</a></div>    
-          </div>
-          <form id="search-bar">
-              <input type="text" name="search" id="search">
-          </form>
-          <div id="right-menus">
-              <div class="menu right-menu"><a class="nav-menu">Logout</a></div>
-          </div>
-      </div>
+    <body>  
+      <?php 
+      $header_second_button = 'Add New Chocolate';
+      $header_second_button_link = '/add_chocolate';
+      include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Add New Chocolate</h1>
         <form enctype="multipart/form-data" action='/api/chocolates/add' method="POST">
@@ -46,5 +38,6 @@
           <input class="form_input" type='submit' value='Add Chocolate'>
         </form>
       </div>
+      <script src="static/js/header.js"></script>
     </body>
 </html>

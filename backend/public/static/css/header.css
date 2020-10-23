@@ -1,0 +1,73 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  background-color: #333;
+  padding: 0px;
+  margin: 0px;
+}
+
+.header-text-input {
+  background: none;
+  border: none;
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  margin: 5px 10px;
+}
+
+.header-text-input:focus {
+  outline: none;
+}
+
+.header-text-button {
+  background-color: #429ef5;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  height: 100%;
+  padding: 0px 15px
+}
+
+.header-text-button:hover {
+  background-color: #42d1f5;
+  outline: none;
+}
+
+.header-text-button:focus {
+  outline: none;
+}
+
+.header-form {
+  display: flex;
+  height: 100%;
+  background-color: lightgray;
+  justify-items: center;
+  align-items: center;
+}
+
+.header-span {
+  user-select: none;
+}
+
+#header-search-form {
+  position: absolute;
+  width: 33%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+}
+
+#header-logout-form {
+  margin-left: auto;
+}
+
+#header-search-icon {
+  font-size: 20px;
+  margin: auto 10px auto 0px;
+}
