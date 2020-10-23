@@ -4,6 +4,7 @@
         <title>Add a New Chocolate</title>
         <link rel="stylesheet" href="static/css/header.css">
         <link rel="stylesheet" href="static/css/rizky.css">
+        <link rel="stylesheet" href="static/css/add_chocolate.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>  

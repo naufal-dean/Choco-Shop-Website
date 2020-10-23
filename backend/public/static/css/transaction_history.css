@@ -1,0 +1,37 @@
+.transaction-table {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.transaction {
+  display: flex;
+  width: 100%;
+}
+
+.transaction-column {
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.transaction-column.c1 { width: 20% }
+.transaction-column.c2 { width: 10% }
+.transaction-column.c3 { width: 10% }
+.transaction-column.c4 { width: 20% }
+.transaction-column.c5 { width: 10% }
+.transaction-column.c6 { width: 30% }
+
+.bordered {
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+}
+
+.bold {
+  font-weight: bold;
+}
