@@ -32,6 +32,7 @@ class PageController extends Controller
     }
 
     public function dashboard_page() {
+        $page = "/";
         $row = $this->check_auth();
         $chocolates = \DatabaseConnection::execute_query("SELECT * FROM chocolate ORDER BY sold DESC LIMIT 10;");
         include("../pages/dashboard.php");

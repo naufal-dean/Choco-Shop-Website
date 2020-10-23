@@ -1,12 +1,14 @@
 <header id="nav-bar">
     <div id="left-menus" class="menus">
-        <div class="menu"><a class="nav-menu active">Home</a></div>
+        <div class="menu">
+          <a class="nav-menu<?php if ($page == "/") echo ' active'; else echo '" href="/'; ?>">Home</a>
+        </div>
         <div class="menu">
             <?php 
                 if ($row['is_superuser']) {
-                    echo '<a class="nav-menu" href="/add_chocolate">Add 🍫</a>';
+                    echo '<a class="nav-menu'.($page != "/" ? ' active' : '" href="/add_chocolate').'">Add 🍫</a>';
                 } else {
-                    echo '<a class="nav-menu" href="/transaction_history>History</a>';
+                    echo '<a class="nav-menu'.($page != "/" ? ' active' : '" href="/transaction_history').'">History</a>';
                 }
             ?>
         </div>    
