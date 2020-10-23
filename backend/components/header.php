@@ -15,7 +15,7 @@
             if ($user_info['is_superuser']) {
                 echo '<a class="nav-menu'.$nav_temp_var_2.'" href="/add_chocolate">Add 🍫</a>';
             } else {
-                echo '<a class="nav-menu'.$nav_temp_var_3.'" href="/transaction_history>History</a>';
+                echo '<a class="nav-menu'.$nav_temp_var_3.'" href="/transaction_history">History</a>';
             }
         ?>
     </div>
@@ -29,6 +29,6 @@
         </form>
     </div>
     <div id="nav-right-menus" class="nav-menus nav-hidden">
-        <a href="/api/users/logout" class="nav-menu">Logout</a>
+        <div class="nav-menu"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
     </div>
 </header>
