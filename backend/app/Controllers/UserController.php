@@ -14,12 +14,12 @@ class UserController extends Controller
 
     public function login() {
         # Check data availability
-        if (empty($_POST['username']) || empty($_POST['password'])) {
-            return $this->respondError('Please enter username and password', null, 400);
+        if (empty($_POST['email']) || empty($_POST['password'])) {
+            return $this->respondError('Please enter email and password', null, 400);
         }
 
-        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ? and password = BINARY ?;');
-        $res->bind_param('ss', $_POST['username'], $_POST['password']);
+        $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE email = BINARY ? and password = BINARY ?;');
+        $res->bind_param('ss', $_POST['email'], $_POST['password']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
         if ($res === false) {
@@ -37,8 +37,8 @@ class UserController extends Controller
         # Generate token
         $token = bin2hex(openssl_random_pseudo_bytes(32));
 
-        $res = \DatabaseConnection::prepare_query('UPDATE user SET access_token = ?, token_creation_time = now() WHERE username = BINARY ?;');
-        $res->bind_param('ss', $token, $_POST['username']);
+        $res = \DatabaseConnection::prepare_query('UPDATE user SET access_token = ?, token_creation_time = now() WHERE email = BINARY ?;');
+        $res->bind_param('ss', $token, $_POST['email']);
         $res->execute();
 
         setcookie('CHOCO_SESSION', $token, time()+3600, '/');
@@ -50,7 +50,8 @@ class UserController extends Controller
         $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
         $res->execute();
 
-        return $this->respondSuccess('Successfully logout', null, 200);
+        header('Location: /login');
+        exit();
     }
 
     public function register() {

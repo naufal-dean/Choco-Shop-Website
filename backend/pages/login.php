@@ -13,9 +13,9 @@
                 </div>
                 <br>
                 <form id="form-box" onsubmit="callLogin(event)">
-                    <label class="form-input-label" for="username">Username</label><br>
+                    <label class="form-input-label" for="email">Email</label><br>
                     <div class="form-input-box-container">
-                        <input class="form-input-box" type="text" id="username" name="username" pattern="[A-Za-z0-9_]+" title="Username must contains alphanumberic and underscores only" required>
+                        <input class="form-input-box" type="email" id="email" name="email" required>
                         <span class="form-input-box-dummy"></span>
                     </div>
                     <label class="form-input-label" for="password">Password</label><br>
@@ -24,7 +24,7 @@
                         <span class="form-input-box-dummy"></span>
                     </div>
                     <br>
-                    <input class="form-input-submit" type="submit" value="submit">
+                    <input class="form-input-submit" type="submit" value="login">
                     <input class="form-input-submit green-button" onclick="goRegister()" type="button" value="or register...">
                     <ul id="error-box"></ul>
                 </form>
