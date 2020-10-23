@@ -32,12 +32,12 @@ class PageController extends Controller
     }
 
     public function dashboard_page() {
-        $row = $this->check_auth();
+        $user_info = $this->check_auth();
         include("../pages/dashboard.php");
     }
 
     public function add_chocolate_page() {
-        $row = $this->check_auth(true);
+        $user_info = $this->check_auth(true);
         include("../pages/add_chocolate.php");
     }
 
