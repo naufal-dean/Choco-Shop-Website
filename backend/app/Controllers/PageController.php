@@ -36,4 +36,10 @@ class PageController extends Controller
         $row = $this->check_auth();
         include("../pages/add_chocolate.php");
     }
+
+    public function transaction_history_page() {
+        $user_info = $this->check_auth();
+        $transactions = \DatabaseConnection::execute_query("SELECT name, amount, total_price, transaction_date, transaction_time, address FROM transaction t INNER JOIN chocolate c ON t.chocolate = c.id WHERE user_id = ".$user_info['id'].";");
+        include("../pages/transaction_history.php");
+    }
 }

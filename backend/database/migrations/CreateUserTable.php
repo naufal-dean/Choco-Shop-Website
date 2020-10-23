@@ -13,7 +13,7 @@ class CreateUserTable
             password varchar(100),
             is_superuser bit,
             access_token varchar(64) unique,
-            token_creation_time datetime,
+            token_creation_time datetime
         );");
         $conn->commit();
         echo '[+] Done...'.PHP_EOL;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transaction History</title>
+        <link rel="stylesheet" href="static/css/header.css">
+        <link rel="stylesheet" href="static/css/rizky.css">
+        <link rel="stylesheet" href="static/css/transaction_history.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>  
+      <?php include __DIR__.'/../components/header.php' ?>
+      <div id="container">
+        <h1>Transaction History</h1>
+        <div class='transaction-table'>
+          <div class='transaction bordered'>
+            <span class='transaction-column c1 bold'>Chocolate Name</span>
+            <span class='transaction-column c2 bold'>Amount</span>
+            <span class='transaction-column c3 bold'>Total Price</span>
+            <span class='transaction-column c4 bold'>Date</span>
+            <span class='transaction-column c5 bold'>Time</span>
+            <span class='transaction-column c6 bold'>Address</span>
+          </div>
+          <?php 
+            if (empty($transactions)) {
+              $transactions = array(array("name"=>"-", "amount"=>"-", "total_price"=>"-", "transaction_date"=>"-", "transaction_time"=>"-", "address"=>"-"));
+            }
+            foreach ($transactions as $transaction) {
+              echo "<div class='transaction'>";
+              echo "<span class='transaction-column c1'>".$transaction['name']."</span>";
+              echo "<span class='transaction-column c2'>".$transaction['amount']."</span>";
+              echo "<span class='transaction-column c3'>".$transaction['total_price']."</span>";
+              echo "<span class='transaction-column c4'>".$transaction['transaction_date']."</span>";
+              echo "<span class='transaction-column c5'>".$transaction['transaction_time']."</span>";
+              echo "<span class='transaction-column c6'>".$transaction['address']."</span>";
+              echo "</div>";
+            }
+          ?>
+        </table>
+      </div>
+      <script src="static/js/header.js"></script>
+    </body>
+</html>
