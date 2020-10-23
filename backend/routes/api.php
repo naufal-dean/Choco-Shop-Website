@@ -22,6 +22,7 @@ Router::get('/login/', 'PageController@login_page');
 Router::get('/register/', 'PageController@register_page');
 Router::get('/', 'PageController@dashboard_page');
 Router::get('/add_chocolate/', 'PageController@add_chocolate_page');
+Router::get('/detail_chocolate/', 'PageController@detail_chocolate_page');
 Router::get('/transaction_history/', 'PageController@transaction_history_page');
 
 # Transactions Api
