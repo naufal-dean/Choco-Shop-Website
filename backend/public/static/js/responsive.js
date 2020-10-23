@@ -1,3 +1,4 @@
 function toggleMenu() {
-    document.getElementById("left-menus").classList.toggle("menus");
+    document.getElementById("nav-left-menus").classList.toggle("nav-hidden");
+    document.getElementById("nav-right-menus").classList.toggle("nav-hidden");
 }

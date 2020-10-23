@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <?php include __DIR__.'/../components/header.php' ?>
+        <?php $nav_page = 'dashboard'; include __DIR__.'/../components/header.php'; ?>
         <div id="container">
             <div id="welcome">
-                <h2>Hello, <?php echo $row['username']; ?></h2>
+                <h2>Hello, <?php echo $user_info['username']; ?></h2>
             </div>
             <div id="chocolates-container">
                 <?php 
