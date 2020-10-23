@@ -20,8 +20,16 @@
                                 <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
                                 <div class="chocolate-desc">
                                     <h2>'.$chocolate['name'].'</h2>
-                                    <p>Amount sold: '.$chocolate['sold'].'</p>
-                                    <p>Price Rp. '.$chocolate['price'].',00</p>
+                                    <table class="info-table">
+                                        <tr>
+                                            <td>Amount sold</td>
+                                            <td>'.$chocolate['sold'].'</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>Rp. '.$chocolate['price'].',00</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         ';
