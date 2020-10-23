@@ -29,6 +29,6 @@
         </form>
     </div>
     <div id="nav-right-menus" class="nav-menus nav-hidden">
-        <div class="nav-menu"><a href="/api/users/logout" class="nav-menu">Logout</a></div>
+        <a href="/api/users/logout" class="nav-menu">Logout</a>
     </div>
 </header>
