@@ -8,11 +8,25 @@ a {
     text-decoration: none;
 }
 
+input {
+    outline: none;
+    border: none;
+}
+
+.mobile-only {
+    display: none;
+}
+
+#hamburger {
+    height: 50px;
+    object-fit: cover;
+}
+
 #nav-bar {
-    width: 90%;
+    width: 94%;
     height: 50px;
     margin: 0;
-    padding: 0 5%;
+    padding: 0 3%;
     display: flex;
     background-color: #333;
     font-size: 20px;
@@ -34,23 +48,94 @@ a {
 }
 
 #left-menus, #right-menus {
-    width: 25%;
-    display: flex;
+    width: 30%;
     align-items: center;
     color: white;
+    overflow: hidden;
 }
 
 #right-menus {
+    display: flex;
     justify-content: flex-end;
 }
 
+#middle-container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
 #search-bar {
-    width: 50%;
-    line-height: 50px;
+    width: 100%;
+    line-height: 48px;
+    padding: 1px 0;
     display: flex;
     justify-content: center;
 }
 
 #search {
-    width: 80%;
+    width: 100%;
+    font-family: inherit;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #ddd;
+    transition: background-color .5s ease;
+}
+
+#search:focus {
+    background-color: white;
+}
+
+#search-button {
+    width: 10%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+.menus {
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    #nav-bar {
+        width: 100%;
+        height: 70px;
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+
+    #left-menus {
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+    }
+
+    #right-menus {
+        display: none;
+    }
+
+    #middle-container {
+        width: 95%;
+        padding: 5px;
+    }
+
+    .menu, .nav-menu {
+        display: block;
+        padding: 0;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .mobile-only {
+        display: initial;
+    }
+
+    .menus {
+        display: none;
+    }    
 }
