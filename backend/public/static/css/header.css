@@ -20,11 +20,11 @@
 }
 
 .menu {
-    color: white;
     text-decoration: none;
 }
 
 .nav-menu {
+    color: white;
     text-align: center;
     padding: 15px 30px;
     text-decoration: none;
