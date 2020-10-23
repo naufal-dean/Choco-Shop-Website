@@ -1,5 +1,5 @@
 <header id="nav-bar">
-    <div id="left-menus" class="menus">
+    <div id="left-menus" class="pc-flex menus">
         <div class="menu">
           <a class="nav-menu<?php if ($page == "/") echo ' active'; else echo '" href="/'; ?>">Home</a>
         </div>
