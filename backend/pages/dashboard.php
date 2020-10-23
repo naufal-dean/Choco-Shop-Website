@@ -13,14 +13,21 @@
                 <h2>Hello, <?php echo $row['username']; ?></h2>
             </div>
             <div id="chocolates-container">
-                <div class="chocolate-container">
-                    <img class="chocolate-image">
-                    <div class="chocolate-desc">
-                        <h2>Choco Name 1</h2>
-                        <p>Amount sold: 6</p>
-                        <p>Price Rp. 3000,00</p>
-                    </div>
-                </div>
+                <?php 
+                    foreach ($chocolates as $chocolate) {
+                        echo '
+                            <div class="chocolate-container">
+                                <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
+                                <div class="chocolate-desc">
+                                    <h2>'.$chocolate['name'].'</h2>
+                                    <p>Amount sold: '.$chocolate['sold'].'</p>
+                                    <p>Price Rp. '.$chocolate['price'].',00</p>
+                                </div>
+                            </div>
+                        ';
+                    }
+
+                ?>
             </div>
         </div>
         <script src="static/js/responsive.js"></script>
