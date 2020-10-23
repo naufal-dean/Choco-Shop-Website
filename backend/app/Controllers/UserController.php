@@ -80,7 +80,7 @@ class UserController extends Controller
         }
 
         # Register user
-        $res = \DatabaseConnection::prepare_query('INSERT INTO user (username, email, password, is_superuser) VALUES (?, ?, ?, 1);');
+        $res = \DatabaseConnection::prepare_query('INSERT INTO user (username, email, password, is_superuser) VALUES (?, ?, ?, 0);');
         $res->bind_param('sss', $_POST['username'], $_POST['email'], $_POST['password']);
         $res->execute();
 
