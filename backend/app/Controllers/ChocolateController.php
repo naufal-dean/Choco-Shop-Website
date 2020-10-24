@@ -53,7 +53,13 @@ class ChocolateController extends Controller
                     $file_name = 'chocolate_' . $id . '.' . $ext;
                     $target_file = __DIR__.'/../../public/static/images/chocolates/'.$file_name;
                     move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
-                    return $this->respondSuccessCode('New chocolate added!', 200);
+                    if (array_key_exists('soft_return', $_POST)) {
+                        $message_title = "Chocolate Added";
+                        $message_content = 'You have successfully added a new chocolate: "'.$_POST['name'].'".';
+                        include __DIR__.'/../../pages/message.php';
+                    } else {
+                        return $this->respondSuccessCode('New chocolate added!', 200);
+                    }
                 } else {
                     return $this->respondErrorCode('Query didnt work!', 500);
                 }
