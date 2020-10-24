@@ -44,7 +44,7 @@ class PageController extends Controller
     }
 
     public function detail_chocolate_page() {
-        $user_info = $this->check_auth(true);
+        $user_info = $this->check_auth(false);
         $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         $arr = explode('/', rtrim($path, '/'));
         $id = end($arr);
@@ -64,10 +64,6 @@ class PageController extends Controller
     public function add_stock_chocolate_page() {
         // check user role
         $user_info = $this->check_auth(true);
-        if (!$user_info['is_superuser']) {
-            http_response_code(403);
-            return;
-        }
 
         // get chocolate
         $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
@@ -90,11 +86,7 @@ class PageController extends Controller
 
     public function buy_chocolate_page() {
         // check user role
-        $user_info = $this->check_auth(true);
-        if ($user_info['is_superuser']) {
-            http_response_code(403);
-            return;
-        }
+        $user_info = $this->check_auth(false);
 
         // get chocolate
         $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
