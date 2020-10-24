@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Transaction History</title>
-        <link rel="stylesheet" href="static/css/header.css">
-        <link rel="stylesheet" href="static/css/rizky.css">
-        <link rel="stylesheet" href="static/css/transaction_history.css">
+        <title>Transaction History - Choco Shop</title>
+        <link rel="stylesheet" href="/static/css/header.css">
+        <link rel="stylesheet" href="/static/css/rizky.css">
+        <link rel="stylesheet" href="/static/css/transaction_history.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>  
+    <body>
       <?php $nav_page = 'transaction_history'; include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Transaction History</h1>
