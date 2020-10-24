@@ -3,7 +3,7 @@
     <head>
         <title>Detail - Choco Shop</title>
         <link rel="stylesheet" href="/static/css/header.css">
-        <link rel="stylesheet" href="/static/css/dashboard.css">
+        <link rel="stylesheet" href="/static/css/detail_chocolate.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -17,17 +17,17 @@
                         </div>
                         <div class="chocolate-detail-body">
                             <div class="chocolate-detail-img">
-                                <img class="chocolate-image"
+                                <img class="chocolate-detail-img"
                                     src="/static/images/chocolates/chocolate_'
                                     .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
                                     alt="'.$chocolate['name'].'">
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>
-                                    <li>Amount sold: '.$chocolate['sold'].'</li>
-                                    <li>Price: '.$chocolate['price'].'</li>
-                                    <li>Amount: '.$chocolate['stock'].'</li>
-                                    <li>Description: '.$chocolate['description'].'</li>
+                                    <li><span>Amount sold:</span> '.$chocolate['sold'].'</li>
+                                    <li><span>Price:</span> Rp '.$chocolate['price'].',00</li>
+                                    <li><span>Amount:</span> '.$chocolate['stock'].'</li>
+                                    <li><span>Description:</span><br>'.$chocolate['description'].'</li>
                                 </ul>
                             </div>
                         </div>                
@@ -37,7 +37,7 @@
                         echo '<a class="chocolate-detail-btn" href="/detail_chocolate/'.$id.'/add">Add Stock</a>';
                     } else {
                         if ((int) $chocolate['stock'] > 0)
-                            echo '<a class="chocolate-detail-btn" href="/detail_chocolate/'.$id.'buy">Buy Now</a>';
+                            echo '<a class="chocolate-detail-btn" href="/detail_chocolate/'.$id.'/buy">Buy Now</a>';
                     }
                     echo '</div>';
                 ?>
