@@ -44,7 +44,7 @@ class ChocolateController extends Controller
         // stock int,
         $res = \DatabaseConnection::prepare_query('INSERT INTO chocolate (name, price, description, image_file_type, stock, sold) VALUES (?, ?, ?, ?, ?, 0);');
         if ($res) {
-            if ($_FILES['image']['error'] == UPLOAD_ERR_OK) {
+            if (array_key_exists('image', $_FILES) && ($_FILES['image']['error'] == UPLOAD_ERR_OK)) {
                 $tmp = explode('.', basename($_FILES['image']['name']));
                 $ext = end($tmp);
                 $res->bind_param('sissi', $_POST['name'], $_POST['price'], $_POST['description'], $ext, $_POST['amount']);
