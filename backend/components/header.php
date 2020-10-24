@@ -25,9 +25,9 @@
         <div id="nav-hamburger" class="nav-menu nav-mobile-only" onclick="toggleMenu()">
             <img id="nav-hamburger-img" src="/static/images/hamburger.svg" alt="hamburger">
         </div>
-        <form id="nav-search-form" action="/search/" method="POST">
+        <form id="nav-search-form" action="/search/" method="GET">
             <span id="nav-search-logo">🔍</span>
-            <input type="text" name="search" id="nav-search">
+            <input type="text" name="name" id="nav-search">
         </form>
     </div>
     <div id="nav-right-menus" class="nav-menus nav-hidden">
