@@ -8,6 +8,7 @@
 }
 
 .nav-menu {
+    user-select: none;
     padding: 20px 15px;
     line-height: 50px;
     text-align: center;
