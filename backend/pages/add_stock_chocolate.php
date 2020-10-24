@@ -34,10 +34,10 @@
                                                     <input class="amount-input" type="text" id="amount" name="amount" required>
                                                 </div>
                                                 <div>
-                                                    <button id="inc-amount" onclick="incAmount(event)">+</button>
+                                                    <input id="inc-amount" type="button" onclick="incAmount()" value="+">
                                                 </div>
                                                 <div>
-                                                    <button id="dec-amount" onclick="decAmount(event)">-</button>
+                                                    <input id="dec-amount" type="button" onclick="decAmount()" value="-">
                                                 </div>
                                             </li>
                                         </ul>
@@ -45,15 +45,16 @@
                                 </ul>
                             </div>
                             <div class="chocolate-detail-option">
-                                <input class="form_input" type="submit" value="Add Chocolate">
+                                <input class="form-input-submit" type="button" onclick="goBack()" value="Cancel">
+                                <input class="form-input-submit" type="submit" value="Add">
                             </div>
                         </div>
-                    </form>                
+                    </form>
                 ';
             ?>
         </div>
     </div>
     <script src="/static/js/responsive.js"></script>
-    <script src="/static/js/add_stock.js"></script>
+    <script src="/static/js/add_stock_chocolate.js"></script>
     </body>
 </html>

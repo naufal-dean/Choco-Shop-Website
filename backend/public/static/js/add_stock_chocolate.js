@@ -18,18 +18,18 @@ function callAddStock(e) {
     xhr.send(`amount=${amount}`)
 }
 
-function decAmount(e) {
-    e.preventDefault()
+function decAmount() {
     var amount = parseInt(document.getElementById("amount").value)
     amount = isNaN(amount) ? 0 : amount
     document.getElementById("amount").value = amount > 0 ? --amount : 0
-    console.log(document.getElementById("amount").value)
 }
 
-function incAmount(e) {
-    e.preventDefault()
+function incAmount() {
     var amount = parseInt(document.getElementById("amount").value)
     amount = isNaN(amount) ? 0 : amount
     document.getElementById("amount").value = ++amount
 }
 
+function goBack() {
+    location.href = "."
+}
