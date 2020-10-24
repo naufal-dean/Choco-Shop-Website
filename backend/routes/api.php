@@ -18,6 +18,10 @@ Router::post('/api/chocolates/add/', 'ChocolateController@add_chocolate');
 Router::put('/api/chocolates/([1-9]+)/add', 'ChocolateController@add_stock_chocolate');
 Router::put('/api/chocolates/([1-9]+)/buy', 'ChocolateController@buy_chocolate');
 
+# Transactions Api
+Router::get('/api/transactions/', 'TransactionController@get_user_transactions');
+Router::get('/api/transactions/count', 'TransactionController@get_user_transaction_count');
+
 # Pages
 Router::get('/login/', 'PageController@login_page');
 Router::get('/register/', 'PageController@register_page');
@@ -27,9 +31,6 @@ Router::get('/detail_chocolate/([1-9]*)/', 'PageController@detail_chocolate_page
 Router::get('/detail_chocolate/([1-9]*)/add/', 'PageController@add_stock_chocolate_page');
 Router::get('/detail_chocolate/([1-9]*)/buy/', 'PageController@buy_chocolate_page');
 Router::get('/transaction_history/', 'PageController@transaction_history_page');
-
-# Transactions Api
-Router::get('/transactions/', 'TransactionController@get_user_transactions');
 
 # Testing purposes
 Router::get('/uri/', 'Controller@test');

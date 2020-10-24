@@ -1,0 +1,102 @@
+let TRANSACTION_PER_PAGE = 15
+
+let xhr_transaction = new XMLHttpRequest();
+let xhr_count = new XMLHttpRequest();
+let current_page = 1;
+let max_page = 1;
+
+let transactions = document.getElementById('transactions');
+let control = document.getElementsByClassName('transaction-table-controller')[0];
+let left_button = document.getElementsByClassName('transaction-table-controller-left')[0];
+let number = document.getElementsByClassName('transaction-table-controller-number')[0];
+let right_button = document.getElementsByClassName('transaction-table-controller-right')[0];
+
+xhr_transaction.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    let data = JSON.parse(xhr_transaction.responseText)['data'];
+
+    if (data.length < 1) {
+      data = [{
+        "id": -1,
+        "name": "-",
+        "amount": "-",
+        "total_price": "-",
+        "transaction_date": "-",
+        "transaction_time": "-",
+        "address": "-"
+      }]
+    }
+
+    let content = ''
+    data.forEach(transaction => {
+      part = ''
+      if (transaction['id'] >= 0) {
+        part = " href='/detail_chocolate/"+transaction['id']+"'"
+      }
+
+      content += "<div class='transaction'>";
+      content += "<a class='transaction-column c1'"+part+">" + transaction['name'] + "</a>";
+      content += "<span class='transaction-column c2'>" + transaction['amount'] + "</span>";
+      content += "<span class='transaction-column c3'>" + transaction['total_price'] + "</span>";
+      content += "<span class='transaction-column c4'>" + transaction['transaction_date'] + "</span>";
+      content += "<span class='transaction-column c5'>" + transaction['transaction_time'] + "</span>";
+      content += "<span class='transaction-column c6'>" + transaction['address'] + "</span>";
+      content += "</div>";
+    });
+    transactions.innerHTML = content;
+  }
+};
+
+xhr_count.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    let data = JSON.parse(xhr_count.responseText)['data'];
+    max_page = Math.ceil(data/TRANSACTION_PER_PAGE)
+
+    if (max_page == 0) {
+      max_page = 1;
+    }
+
+    if (max_page == 1) {
+      control.classList.add('hidden')
+    } else {
+      control.classList.remove('hidden')
+    }
+
+    left_button.removeAttribute('disabled');
+    right_button.removeAttribute('disabled');
+    if (current_page == 1) {
+      left_button.setAttribute('disabled', '');
+    }
+    if (current_page == max_page) {
+      right_button.setAttribute('disabled', '');
+    }
+  }
+};
+
+function go_left() {
+  if (current_page > 1) {
+    current_page -= 1;
+    xhr_transaction.open("GET", "/api/transactions/", true);
+    xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+    xhr_count.open("GET", "/api/transactions/count", true);
+    xhr_count.send();
+  }
+  number.innerHTML = current_page
+}
+
+function go_right() {
+  if (current_page < max_page) {
+    current_page += 1;
+    xhr_transaction.open("GET", "/api/transactions/", true);
+    xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+    xhr_count.open("GET", "/api/transactions/count", true);
+    xhr_count.send();
+  }
+  number.innerHTML = current_page
+}
+
+number.innerHTML = current_page
+xhr_transaction.open("GET", "/api/transactions/", true);
+xhr_transaction.send(`offset=0&count=${TRANSACTION_PER_PAGE}`);
+xhr_count.open("GET", "/api/transactions/count", true);
+xhr_count.send();

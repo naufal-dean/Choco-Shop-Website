@@ -11,38 +11,26 @@
       <?php $nav_page = 'transaction_history'; include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Transaction History</h1>
-        <div class='transaction-table'>
-          <div class='transaction bordered'>
-            <a class='transaction-column c1 bold'>Chocolate Name</a>
-            <span class='transaction-column c2 bold'>Amount</span>
-            <span class='transaction-column c3 bold'>Total Price</span>
-            <span class='transaction-column c4 bold'>Date</span>
-            <span class='transaction-column c5 bold'>Time</span>
-            <span class='transaction-column c6 bold'>Address</span>
+        <div class='transaction-table-viewer'>
+          <div class='transaction-table'>
+            <div class='transaction bordered'>
+              <a class='transaction-column c1 bold'>Chocolate Name</a>
+              <span class='transaction-column c2 bold'>Amount</span>
+              <span class='transaction-column c3 bold'>Total Price</span>
+              <span class='transaction-column c4 bold'>Date</span>
+              <span class='transaction-column c5 bold'>Time</span>
+              <span class='transaction-column c6 bold'>Address</span>
+            </div>
+            <div id='transactions'></div>
           </div>
-          <?php 
-            if (empty($transactions)) {
-              $transactions = array(array("id"=>-1, "name"=>"-", "amount"=>"-", "total_price"=>"-", "transaction_date"=>"-", "transaction_time"=>"-", "address"=>"-"));
-            }
-            foreach ($transactions as $transaction) {
-              $part = '';
-              if ($transaction['id'] >= 0) {
-                # TODO: ubah link ke halaman chocolate detail yg bener
-                $link = '/detail_chocolate/'.$transaction['id'];
-                $part = ' href="'.$link.'"';
-              }
-              echo "<div class='transaction'>";
-              echo "<a class='transaction-column c1'".$part.">".$transaction['name']."</a>";
-              echo "<span class='transaction-column c2'>".$transaction['amount']."</span>";
-              echo "<span class='transaction-column c3'>".$transaction['total_price']."</span>";
-              echo "<span class='transaction-column c4'>".$transaction['transaction_date']."</span>";
-              echo "<span class='transaction-column c5'>".$transaction['transaction_time']."</span>";
-              echo "<span class='transaction-column c6'>".$transaction['address']."</span>";
-              echo "</div>";
-            }
-          ?>
-        </table>
+        </div>
+        <div class='transaction-table-controller hidden'>
+          <button class='transaction-table-controller-left' onclick="go_left()"><</button>
+          <a class='transaction-table-controller-number'></a>
+          <button class='transaction-table-controller-right' onclick="go_right()">></button>
+        </div>
       </div>
-      <script src="static/js/responsive.js"></script>
+      <script src="/static/js/responsive.js"></script>
+      <script src="/static/js/transaction_history.js"></script>
     </body>
 </html>
