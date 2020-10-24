@@ -15,6 +15,9 @@ class CreateUserTable
             access_token varchar(64) unique,
             token_creation_time datetime
         );");
+        $conn->query("
+        INSERT IGNORE INTO user (username, email, password, is_superuser) 
+        VALUES ('admin', 'admin@admin', 'admin', 1);");
         $conn->commit();
         echo '[+] Done...'.PHP_EOL;
     }
