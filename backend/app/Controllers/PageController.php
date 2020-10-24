@@ -43,6 +43,30 @@ class PageController extends Controller
         include("../pages/add_chocolate.php");
     }
 
+    public function transaction_history_page() {
+        $user_info = $this->check_auth();
+        $transactions = \DatabaseConnection::execute_query("SELECT c.id AS id, name, amount, total_price, transaction_date, transaction_time, address FROM transaction t INNER JOIN chocolate c ON t.chocolate = c.id WHERE user_id = ".$user_info['id'].";");
+        include("../pages/transaction_history.php");
+    }
+
+    public function search_page() {
+        // check user role
+        $user_info = $this->check_auth();
+
+        // fetch data
+        $limit = isset($_GET['limit']) && ((int) $_GET['limit'] > 0) ? ((int) $_GET['limit']) : 10;
+        $page = isset($_GET['page']) && ((int) $_GET['page'] > 0) ? ((int) $_GET['page']) : 1;
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE name LIKE CONCAT("%",?,"%");');
+        $res->bind_param('s', $_GET['name']);
+        $res->execute();
+        $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+        $chocolates_showed = array_slice($chocolates, ($page - 1) * $limit, $page * $limit);
+        $total_page = (int) ceil(count($chocolates) / $limit);
+
+        // show page
+        include("../pages/search.php");
+    }
+
     public function detail_chocolate_page() {
         $user_info = $this->check_auth(false);
         $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
@@ -105,11 +129,5 @@ class PageController extends Controller
             $chocolate = $chocolates[0];
             include("../pages/buy_chocolate.php");
         }
-    }
-
-    public function transaction_history_page() {
-        $user_info = $this->check_auth();
-        $transactions = \DatabaseConnection::execute_query("SELECT c.id AS id, name, amount, total_price, transaction_date, transaction_time, address FROM transaction t INNER JOIN chocolate c ON t.chocolate = c.id WHERE user_id = ".$user_info['id'].";");
-        include("../pages/transaction_history.php");
     }
 }

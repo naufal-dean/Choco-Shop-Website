@@ -23,10 +23,11 @@ Router::get('/login/', 'PageController@login_page');
 Router::get('/register/', 'PageController@register_page');
 Router::get('/', 'PageController@dashboard_page');
 Router::get('/add_chocolate/', 'PageController@add_chocolate_page');
+Router::get('/transaction_history/', 'PageController@transaction_history_page');
+Router::get('/search/', 'PageController@search_page');
 Router::get('/detail_chocolate/([1-9]*)/', 'PageController@detail_chocolate_page');
 Router::get('/detail_chocolate/([1-9]*)/add/', 'PageController@add_stock_chocolate_page');
 Router::get('/detail_chocolate/([1-9]*)/buy/', 'PageController@buy_chocolate_page');
-Router::get('/transaction_history/', 'PageController@transaction_history_page');
 
 # Transactions Api
 Router::get('/transactions/', 'TransactionController@get_user_transactions');
