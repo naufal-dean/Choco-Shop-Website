@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dashboard - Choco Shop</title>
+        <title>Add Stock - Choco Shop</title>
         <link rel="stylesheet" href="/static/css/header.css">
         <link rel="stylesheet" href="/static/css/dashboard.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
