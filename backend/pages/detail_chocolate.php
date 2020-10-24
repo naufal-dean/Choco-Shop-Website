@@ -31,15 +31,15 @@
                     ';
                     echo '<div class="chocolate-detail-option">';
                     if ($user_info['is_superuser']) {
-                        echo '<a class="chocolate-detail-btn" href="'.$id.'/add">Add Stock</a>';
+                        echo '<a class="chocolate-detail-btn" href="/detail_chocolate/'.$id.'/add">Add Stock</a>';
                     } else {
                         if ((int) $chocolate['stock'] > 0)
-                            echo '<a class="chocolate-detail-btn" href="'.$id.'buy">Buy Now</a>';
+                            echo '<a class="chocolate-detail-btn" href="/detail_chocolate/'.$id.'buy">Buy Now</a>';
                     }
                     echo '</div>';
                 ?>
             </div>
         </div>
-    <script src="static/js/responsive.js"></script>
+    <script src="/static/js/responsive.js"></script>
     </body>
 </html>

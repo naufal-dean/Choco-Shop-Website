@@ -45,7 +45,8 @@ class PageController extends Controller
 
     public function detail_chocolate_page() {
         $user_info = $this->check_auth(true);
-        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $arr = explode('/', rtrim($path, '/'));
         $id = end($arr);
         $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
         $res->bind_param('i', $id);
@@ -69,7 +70,8 @@ class PageController extends Controller
         }
 
         // get chocolate
-        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $arr = explode('/', rtrim($path, '/'));
         $id = $arr[count($arr) - 2];
         $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
         $res->bind_param('i', $id);
@@ -95,7 +97,8 @@ class PageController extends Controller
         }
 
         // get chocolate
-        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $arr = explode('/', rtrim($path, '/'));
         $id = $arr[count($arr) - 2];
         $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
         $res->bind_param('i', $id);

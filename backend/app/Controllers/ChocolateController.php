@@ -70,8 +70,11 @@ class ChocolateController extends Controller
         parse_str(file_get_contents("php://input"), $input);
 
         // check input
-        if (empty($input['amount'])) {
+        if (!isset($input['amount'])) {
             return $this->respondError('Please enter add stock amount', null, 400);
+        }
+        if ((int) $input['amount'] <= 0) {
+            return $this->respondError('Please enter positive add stock amount', null, 400);
         }
 
         // get choco id
