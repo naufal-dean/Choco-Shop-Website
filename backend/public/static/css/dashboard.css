@@ -4,7 +4,7 @@ body {
 }
 
 #welcome {
-    padding: 50px 200px;
+    padding: 50px 100px;
 }
 
 #chocolates-container {
@@ -19,7 +19,7 @@ body {
     width: 250px;
     border: 1px solid #aaa;
     border-radius: 50px 0;
-    transition: all .5s ease;
+    transition: all .5s ease, border-radius 0s ease;
 }
 
 .chocolate-container:hover {
@@ -32,7 +32,7 @@ body {
 .chocolate-image {
     width: 250px;
     height: 200px;
-    background-color: darkblue;
+    background-color: #654321;
     text-align: center;
     border-radius: 50px 0 0 0;
     object-fit: contain;
@@ -41,13 +41,19 @@ body {
 
 .chocolate-desc {
     padding: 20px;
+    background-color: #e6a163;
+    border-radius: 0 0 50px 0;
 }
 
-.info-table tr td:first-child {
-    width: 60%;
+.chocolate-info {
+    width: 100%;
 }
 
-.info-table tr td:last-child {
+.chocolate-info-key {
+    font-weight: bold;
+}
+
+.chocolate-info-value {
     text-align: right;
 }
 
