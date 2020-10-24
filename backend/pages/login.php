@@ -11,7 +11,6 @@
                 <div id="form-title">
                     <h1>Willy Wangky Choco Factory</h1>
                 </div>
-                <br>
                 <form id="form-box" onsubmit="callLogin(event)">
                     <label class="form-input-label" for="email">Email</label><br>
                     <div class="form-input-box-container">
@@ -25,8 +24,8 @@
                     </div>
                     <br>
                     <input class="form-input-submit" type="submit" value="login">
-                    <input class="form-input-submit green-button" onclick="goRegister()" type="button" value="or register...">
-                    <ul id="error-box"></ul>
+                    <input class="form-redirect-button" onclick="goRegister()" type="button" value="or register...">
+                    <ul id="form-error-box"></ul>
                 </form>
             </div>
         </div>

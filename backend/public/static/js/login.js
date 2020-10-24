@@ -1,5 +1,5 @@
 function callError() {
-    var error = document.getElementById("error-box")
+    var error = document.getElementById("form-error-box")
     error.textContent = ""
     var temp = document.createElement("li")
     temp.textContent = "Login failed"

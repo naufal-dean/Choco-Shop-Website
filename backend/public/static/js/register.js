@@ -1,7 +1,7 @@
 var valid = {"password": true, "email": true, "username": true, "register": true}
 
 function callError() {
-    var error = document.getElementById("error-box")
+    var error = document.getElementById("form-error-box")
     error.textContent = ""
     if (!valid["register"]) {
         var temp = document.createElement("li")
