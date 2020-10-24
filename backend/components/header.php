@@ -1,6 +1,6 @@
 <header id="nav-bar">
     <div id="nav-left-menus" class="nav-menus nav-hidden">
-        <?php 
+        <?php
             $nav_temp_var_1 = '';
             $nav_temp_var_2 = '';
             $nav_temp_var_3 = '';
@@ -27,7 +27,7 @@
         </div>
         <form id="nav-search-form" action="/search/" method="GET">
             <span id="nav-search-logo">🔍</span>
-            <input type="text" name="name" id="nav-search">
+            <input type="search" name="name" id="nav-search">
         </form>
     </div>
     <div id="nav-right-menus" class="nav-menus nav-hidden">
