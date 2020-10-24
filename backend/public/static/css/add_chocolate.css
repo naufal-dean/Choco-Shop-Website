@@ -46,3 +46,9 @@ form[action='/api/chocolates/add'] {
 .form_input[type='submit']:hover {
   background-color: #42d1f5;
 }
+
+@media (max-width: 600px) {
+  .form_input {
+    min-width: 80vw;
+  }
+}
