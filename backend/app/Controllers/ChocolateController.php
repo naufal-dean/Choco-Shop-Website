@@ -65,6 +65,50 @@ class ChocolateController extends Controller
         }
     }
 
+    public function add_stock_chocolate() {
+        // get input
+        parse_str(file_get_contents("php://input"), $input);
+
+        // check input
+        if (empty($input['amount'])) {
+            return $this->respondError('Please enter add stock amount', null, 400);
+        }
+
+        // get choco id
+        $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $arr = explode('/', rtrim($path, '/'));
+        $id = $arr[count($arr) - 2];
+
+        // check chocolate
+        $res_1 = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
+        $res_1->bind_param('i', $id);
+        $res_1->execute();
+        $chocolates = $res_1->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        if ($chocolates === false) {
+            return $this->respondError('Database on server is not properly setup?', null, 500);
+        } else if (!$chocolates) {
+            return $this->respondError('Chocolate Not Found', null, 404);
+        }
+
+        // add choco
+        $chocolate = $chocolates[0];
+        $new_stock = (int) $chocolate['stock'] + (int) $input['amount'];
+        $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ? WHERE id = ?;');
+        $res_2->bind_param('ii', $new_stock, $id);
+        $res_2->execute();
+
+        // return
+        $res_1->execute();
+        $chocolates = $res_1->get_result()->fetch_all(MYSQLI_ASSOC);
+        if ($chocolates === false) {
+            return $this->respondError('Database on server is not properly setup?', null, 500);
+        } else if (!$chocolates) {
+            return $this->respondError('Chocolate Not Found', null, 404);
+        }
+        return $this->respondSuccess('Chocolate stock added successfully', $chocolates[0], 200);
+    }
+
     // TODO: Update chocolate data & Create transaction
     public function buy_chocolate() {
         session_start();

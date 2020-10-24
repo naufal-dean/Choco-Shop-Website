@@ -45,9 +45,71 @@ class PageController extends Controller
 
     public function detail_chocolate_page() {
         $user_info = $this->check_auth(true);
-        $chocolates = \DatabaseConnection::execute_query("SELECT * FROM chocolate WHERE id=1;");
-        $chocolate = $chocolates[0];
-        include("../pages/detail_chocolate.php");
+        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $id = end($arr);
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
+        $res->bind_param('i', $id);
+        $res->execute();
+        $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+        if (empty($chocolates)) {
+            $not_found_message = '404 Chocolate not found';
+            include("../pages/404.php");
+        } else {
+            $chocolate = $chocolates[0];
+            include("../pages/detail_chocolate.php");
+        }
+    }
+
+    public function add_stock_chocolate_page() {
+        // check user role
+        $user_info = $this->check_auth(true);
+        if (!$user_info['is_superuser']) {
+            http_response_code(403);
+            return;
+        }
+
+        // get chocolate
+        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $id = $arr[count($arr) - 2];
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
+        $res->bind_param('i', $id);
+        $res->execute();
+        $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        // show page
+        if (empty($chocolates)) {
+            $not_found_message = '404 Chocolate not found';
+            include("../pages/404.php");
+        } else {
+            $chocolate = $chocolates[0];
+            include("../pages/add_stock_chocolate.php");
+        }
+    }
+
+    public function buy_chocolate_page() {
+        // check user role
+        $user_info = $this->check_auth(true);
+        if ($user_info['is_superuser']) {
+            http_response_code(403);
+            return;
+        }
+
+        // get chocolate
+        $arr = explode('/', $_SERVER['REQUEST_URI']);
+        $id = $arr[count($arr) - 2];
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
+        $res->bind_param('i', $id);
+        $res->execute();
+        $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        // show page
+        if (empty($chocolates)) {
+            $not_found_message = '404 Chocolate not found';
+            include("../pages/404.php");
+        } else {
+            $chocolate = $chocolates[0];
+            include("../pages/buy_chocolate.php");
+        }
     }
 
     public function transaction_history_page() {
