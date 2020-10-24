@@ -146,8 +146,13 @@ class ChocolateController extends Controller
             return $this->respondError('Chocolate Not Found', null, 404);
         }
 
-        // update choco
+        // check choco stock
         $chocolate = $chocolates[0];
+        if ((int) $input['amount'] > $chocolate['stock']) {
+            return $this->respondError('The chocolate stock is not enough', null, 400);
+        }
+
+        // update choco
         $new_stock = (int) $chocolate['stock'] - (int) $input['amount'];
         $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ? WHERE id = ?;');
         $res_2->bind_param('ii', $new_stock, $id);
@@ -158,10 +163,10 @@ class ChocolateController extends Controller
         $user_id = 1; // TODO: get user id
         $amount = (int) $input['amount'];
         $total_price = (int) $chocolate['price'] * $amount;
-        $res_3->bind_param('iiiisss', $user_id, $id, $amount, $total_price, $input['address'], date('Y-m-d'), date('H:i:s'));
-        if (!$res_3->execute()) {
-            return $this->respondSuccess($input, [$user_id, $id, $amount, $total_price, $input['address'], date('Y-m-d'), date('H:i:s')], 200);
-        }
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+        $res_3->bind_param('iiiisss', $user_id, $id, $amount, $total_price, $input['address'], $date, $time);
+        $res_3->execute();
 
         // return
         $res_1->execute();
