@@ -22,7 +22,6 @@ form[action='/api/chocolates/add'] {
 
 .form_input {
   font-family: 'Courier New', Courier, monospace;
-  min-width: 450px;
 }
 
 .form_input[type='text'], .form_input[type='number'], textarea.form_input {

@@ -28,16 +28,14 @@
                                 </div>
                                 <div class="chocolate-desc">
                                     <h2>'.$chocolate['name'].'</h2>
-                                    <table class="info-table">
-                                        <tr>
-                                            <td>Amount sold</td>
-                                            <td>'.$chocolate['sold'].'</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Price</td>
-                                            <td>Rp. '.$chocolate['price'].',00</td>
-                                        </tr>
-                                    </table>
+                                    <div class="chocolate-info">
+                                        <div class="chocolate-info-key">Amount sold</div>
+                                        <div class="chocolate-info-value">'.$chocolate['sold'].'</div>
+                                    </div>
+                                    <div class="chocolate-info">
+                                        <div class="chocolate-info-key">Price</div>
+                                        <div class="chocolate-info-value">Rp. '.$chocolate['price'].',00</div>
+                                    </div>
                                 </div>
                             </div>
                         ';
