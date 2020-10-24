@@ -17,6 +17,7 @@ form[action='/api/chocolates/add'] {
 
 .form_input_description {
   width: 33%;
+  white-space: nowrap;
 }
 
 .form_input {
