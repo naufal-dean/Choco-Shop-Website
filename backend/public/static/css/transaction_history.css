@@ -39,8 +39,10 @@
   margin: 0px 5px;
 }
 
-.transaction-table-controller {
-  margin: 5px 0px 0px auto;
+.transaction-per-page {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  margin: 0px 0px 5px auto;
 }
 
 .bordered {

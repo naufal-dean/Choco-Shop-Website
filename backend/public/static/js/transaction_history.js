@@ -6,6 +6,7 @@ let current_page = 1;
 let max_page = 1;
 
 let transactions = document.getElementById('transactions');
+let tpp = document.getElementsByClassName('transaction-per-page-select')[0];
 let control = document.getElementsByClassName('transaction-table-controller')[0];
 let left_button = document.getElementsByClassName('transaction-table-controller-left')[0];
 let number = document.getElementsByClassName('transaction-table-controller-number')[0];
@@ -70,12 +71,15 @@ xhr_count.onreadystatechange = function() {
     if (current_page == max_page) {
       right_button.setAttribute('disabled', '');
     }
+
+    number.innerHTML = current_page+'/'+max_page;
   }
 };
 
 function go_left() {
   if (current_page > 1) {
     current_page -= 1;
+    transactions.innerHTML = '';
     xhr_transaction.open("GET", "/api/transactions/", true);
     xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
     xhr_count.open("GET", "/api/transactions/count", true);
@@ -87,12 +91,22 @@ function go_left() {
 function go_right() {
   if (current_page < max_page) {
     current_page += 1;
+    transactions.innerHTML = '';
     xhr_transaction.open("GET", "/api/transactions/", true);
     xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
     xhr_count.open("GET", "/api/transactions/count", true);
     xhr_count.send();
   }
   number.innerHTML = current_page
+}
+
+function update_transaction_per_page() {
+  TRANSACTION_PER_PAGE = parseInt(tpp.value);
+  transactions.innerHTML = '';
+  xhr_transaction.open("GET", "/api/transactions/", true);
+  xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+  xhr_count.open("GET", "/api/transactions/count", true);
+  xhr_count.send();
 }
 
 number.innerHTML = current_page

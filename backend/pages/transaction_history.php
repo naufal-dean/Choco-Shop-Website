@@ -11,6 +11,16 @@
       <?php $nav_page = 'transaction_history'; include __DIR__.'/../components/header.php' ?>
       <div id="container">
         <h1>Transaction History</h1>
+        <div class='transaction-per-page'>
+          <span>Transaction per Page: </span>
+          <select name="transaction_per_page" class='transaction-per-page-select' onchange="update_transaction_per_page()">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
         <div class='transaction-table-viewer'>
           <div class='transaction-table'>
             <div class='transaction bordered'>
