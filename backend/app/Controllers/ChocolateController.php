@@ -51,7 +51,7 @@ class ChocolateController extends Controller
                 if ($res->execute()) {
                     $id = \DatabaseConnection::get_insert_id();
                     $file_name = 'chocolate_' . $id . '.' . $ext;
-                    $target_file = __DIR__.'/../../public/static/'.$file_name;
+                    $target_file = __DIR__.'/../../public/static/images/chocolates/'.$file_name;
                     move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
                     return $this->respondSuccessCode('New chocolate added!', 200);
                 } else {

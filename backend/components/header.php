@@ -21,7 +21,7 @@
     </div>
     <div id="nav-middle-container" class="nav-menus">
         <div id="nav-hamburger" class="nav-menu nav-mobile-only" onclick="toggleMenu()">
-            <img id="nav-hamburger-img" src="static/images/hamburger.svg">
+            <img id="nav-hamburger-img" src="static/images/hamburger.svg" alt="hamburger">
         </div>
         <form id="nav-search-form">
             <span id="nav-search-logo">🔍</span>

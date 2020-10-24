@@ -14,10 +14,18 @@
             </div>
             <div id="chocolates-container">
                 <?php 
+                    if (!$chocolates) {
+                        echo 'There is no chocolate to see/buy here.';
+                    }
                     foreach ($chocolates as $chocolate) {
                         echo '
                             <div class="chocolate-container" onclick="location.href=\'/detail_chocolate/1\';">
-                                <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
+                                <div class="chocolate-image">
+                                    <img class="chocolate-image"
+                                        src="/static/images/chocolates/chocolate_'
+                                        .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
+                                        alt="'.$chocolate['name'].'">
+                                </div>
                                 <div class="chocolate-desc">
                                     <h2>'.$chocolate['name'].'</h2>
                                     <table class="info-table">

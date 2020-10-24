@@ -85,6 +85,8 @@
     width: 10%;
     justify-content: center;
     align-items: center;
+    font-size: 10px;
+    color: white;
 }
 
 #nav-hamburger-img {

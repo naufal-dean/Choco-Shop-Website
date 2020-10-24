@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #welcome {
@@ -17,6 +18,7 @@ body {
     margin: 0 75px 100px 75px;
     width: 250px;
     border: 1px solid #aaa;
+    border-radius: 50px 0;
     transition: all .5s ease;
 }
 
@@ -31,6 +33,10 @@ body {
     width: 250px;
     height: 200px;
     background-color: darkblue;
+    text-align: center;
+    border-radius: 50px 0 0 0;
+    object-fit: contain;
+    color: white;
 }
 
 .chocolate-desc {
@@ -38,7 +44,7 @@ body {
 }
 
 .info-table tr td:first-child {
-    width: 55%;
+    width: 60%;
 }
 
 .info-table tr td:last-child {
