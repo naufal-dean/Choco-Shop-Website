@@ -27,7 +27,7 @@
         </div>
         <form id="nav-search-form" action="/search/" method="POST">
             <span id="nav-search-logo">🔍</span>
-            <input type="text" name="search" id="nav-search">
+            <input type="search" name="search" id="nav-search">
         </form>
     </div>
     <div id="nav-right-menus" class="nav-menus nav-hidden">
