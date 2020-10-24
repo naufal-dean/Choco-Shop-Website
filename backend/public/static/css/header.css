@@ -33,6 +33,7 @@
     align-items: center;
     color: white;
     overflow: hidden;
+    transition: all .5s ease;
 }
 
 #nav-right-menus {
@@ -114,10 +115,6 @@
         display: initial;
     }
 
-    .nav-hidden {
-        display: none;
-    }
-
     #nav-bar {
         padding: 0px;
         height: 50px;
@@ -130,7 +127,7 @@
     }
 
     #nav-search-form {
-        padding: 5px 10px 5px 0px;
+        padding: 5px 10px 5px 5px;
     }
 
     #nav-left-menus {
@@ -149,8 +146,21 @@
         flex-direction: column;
     }
 
+    #nav-middle-container {
+        background-color: #333;
+        z-index: 2;
+    }
+
+    #nav-right-menus, #nav-left-menus {
+        z-index: 0;
+    }
+
     #nav-right-menus.nav-hidden {
-        display: none;
+        transform: translateY(-400%);
+    }
+
+    #nav-left-menus.nav-hidden {
+        transform: translateY(-200%);
     }
 
     #nav-middle-container {
