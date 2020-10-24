@@ -28,7 +28,7 @@
               $part = '';
               if ($transaction['id'] >= 0) {
                 # TODO: ubah link ke halaman chocolate detail yg bener
-                $link = '/chocolates/'.$transaction['id'];
+                $link = '/detail_chocolate/'.$transaction['id'];
                 $part = ' href="'.$link.'"';
               }
               echo "<div class='transaction'>";

@@ -16,7 +16,7 @@
                 <?php 
                     foreach ($chocolates as $chocolate) {
                         echo '
-                            <div class="chocolate-container">
+                            <div class="chocolate-container" onclick="location.href=\'/detail_chocolate/1\';">
                                 <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
                                 <div class="chocolate-desc">
                                     <h2>'.$chocolate['name'].'</h2>

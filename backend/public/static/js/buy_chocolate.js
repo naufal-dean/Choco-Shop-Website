@@ -6,10 +6,8 @@ function callBuy(e) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
-                console.log((this.responseText))
                 // location.href = "."
             } else {
-                console.log(JSON.parse(this.responseText))
                 // location.href = "."
             }
         }
