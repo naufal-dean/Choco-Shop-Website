@@ -11,11 +11,11 @@
             } elseif ($nav_page == 'transaction_history') {
                 $nav_temp_var_3 = ' nav-active';
             }
-            echo '<a class="nav-menu'.$nav_temp_var_1.'" href="/">Home</a>';
+            echo '<a class="nav-menu'.$nav_temp_var_1.'"'.($nav_temp_var_1 ? '' : ' href="/"').'>Home</a>';
             if ($user_info['is_superuser']) {
-                echo '<a class="nav-menu'.$nav_temp_var_2.'" href="/add_chocolate">Add 🍫</a>';
+                echo '<a class="nav-menu'.$nav_temp_var_2.'"'.($nav_temp_var_2 ? '' : ' href="/add_chocolate"').'>Add 🍫</a>';
             } else {
-                echo '<a class="nav-menu'.$nav_temp_var_3.'" href="/transaction_history">History</a>';
+                echo '<a class="nav-menu'.$nav_temp_var_3.'"'.($nav_temp_var_3 ? '' : ' href="/transaction_history"').'>History</a>';
             }
         ?>
     </div>
