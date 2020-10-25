@@ -16,7 +16,18 @@
 
 ### Transaction History Page
 
+<img src="assets/transaction_history_5.png" width="98%" />
+<img src="assets/transaction_history_10.png" width="98%" />
+<img src="assets/transaction_history_5_mobile.png" width="32%" />
+<img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" />
+<img src="assets/transaction_history_10_mobile.png" width="32%" />
+
 ### Add New Chocolate Page
+
+<img src="assets/add_new_chocolate.png" width="98%" />
+<img src="assets/add_new_chocolate_success.png" width="98%" />
+<img src="assets/add_new_chocolate_mobile.png" width="49%" />
+<img src="assets/add_new_chocolate_success_mobile.png" width="49%" />
 
 ### Access Token Expiry Time
 
