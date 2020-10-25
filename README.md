@@ -87,86 +87,86 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ### Login Page
 1. Halaman Login<br>
-<kbd><img src="assets/login.png" width="98%" /></kbd><br>
+<img src="assets/login.png" width="98%" /><br>
 2. Halaman Login di perangkat dengan layar kecil<br>
-<kbd><img src="assets/login_mobile.png" width="32%" /></kbd><br>
+<img src="assets/login_mobile.png" width="32%" /><br>
 
 ### Register Page
 1. Halaman Register<br>
-<kbd><img src="assets/register.png" width="98%" /></kbd><br>
+<img src="assets/register.png" width="98%" /><br>
 2. Halaman Register di perangkat dengan layar kecil<br>
-<kbd><img src="assets/register_mobile.png" width="32%" /></kbd><br>
+<img src="assets/register_mobile.png" width="32%" /><br>
 
 ### Dashboard page
 1. Halaman Dashboard<br>
-<kbd><img src="assets/dashboard.png" width="98%" /></kbd><br>
+<img src="assets/dashboard.png" width="98%" /><br>
 2. Halaman Dashboard di perangkat dengan layar kecil<br>
-<kbd><img src="assets/dashboard_mobile.png" width="32%" /></kbd>
-<kbd><img src="assets/navbar_mobile.png" width="32%" /></kbd><br>
+<img src="assets/dashboard_mobile.png" width="32%" />
+<img src="assets/navbar_mobile.png" width="32%" /><br>
 
 ### Search Result page
 
 1. Halaman Search Result<br>
-<kbd><img src="assets/search.png" width="98%" /></kbd><br>
+<img src="assets/search.png" width="98%" /><br>
 2. Halaman Search Result (Not Found)<br>
-<kbd><img src="assets/search_not_found.png" width="98%" /></kbd><br>
+<img src="assets/search_not_found.png" width="98%" /><br>
 3. Halaman Search Result di perangkat dengan layar kecil<br>
-<kbd><img src="assets/search_mobile.png" width="32%" /></kbd>
-<kbd><img src="assets/search_not_found_mobile.png" width="32%" /></kbd><br>
+<img src="assets/search_mobile.png" width="32%" />
+<img src="assets/search_not_found_mobile.png" width="32%" /><br>
 
 ### Chocolate Detail page
 
 #### Chocolate Detail - User
 
 1. Halaman Chocolate Detail dilihat oleh User biasa<br>
-<kbd><img src="assets/detail_user.png" width="98%" /></kbd><br>
+<img src="assets/detail_user.png" width="98%" /><br>
 2. Halaman Chocolate Detail dilihat oleh User biasa pada layar kecil<br>
-<kbd><img src="assets/detail_user_mobile.png" width="32%" /></kbd><br>
+<img src="assets/detail_user_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Buy Chocolate
 
 1. Halaman Buy Chocolate<br>
-<kbd><img src="assets/buy.png" width="98%" /></kbd><br>
+<img src="assets/buy.png" width="98%" /><br>
 2. Halaman Buy Chocolate saat pembelian sukses<br>
-<kbd><img src="assets/buy_succeed.png" width="98%" /></kbd><br>
+<img src="assets/buy_succeed.png" width="98%" /><br>
 3. Halaman Buy Chocolate di perangkat dengan layar kecil<br>
-<kbd><img src="assets/buy_mobile.png" width="32%" /></kbd><br>
+<img src="assets/buy_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Superuser
 
 1. Halaman Chocolate Detail dilihat oleh Superuser<br>
-<kbd><img src="assets/detail_superuser.png" width="98%" /></kbd><br>
+<img src="assets/detail_superuser.png" width="98%" /><br>
 2. Halaman Chocolate Detail dilihat oleh Superuser pada layar kecil<br>
-<kbd><img src="assets/detail_superuser_mobile.png" width="32%" /></kbd><br>
+<img src="assets/detail_superuser_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Add Stock
 
 1. Halaman Add Stock<br>
-<kbd><img src="assets/add_stock.png" width="98%" /></kbd><br>
+<img src="assets/add_stock.png" width="98%" /><br>
 2. Halaman Add Stock saat penambahan stock berhasil<br>
-<kbd><img src="assets/add_stock_succeed.png" width="98%" /></kbd><br>
+<img src="assets/add_stock_succeed.png" width="98%" /><br>
 3. Halaman Add Stock di perangkat dengan layar kecil<br>
-<kbd><img src="assets/add_stock_mobile.png" width="32%" /></kbd><br>
+<img src="assets/add_stock_mobile.png" width="32%" /><br>
 
 ### Transaction History Page
 1. Halaman Transaction History<br>
-<kbd><img src="assets/transaction_history_5.png" width="98%" title=""/></kbd><br>
+<img src="assets/transaction_history_5.png" width="98%" title=""/><br>
 2. Halaman Transaction History dengan pengaturan transaksi per halaman yang berbeda<br>
-<kbd><img src="assets/transaction_history_10.png" width="98%" /></kbd><br>
+<img src="assets/transaction_history_10.png" width="98%" /><br>
 3. Halaman Transaction History di perangkat dengan layar kecil<br>
-<kbd><img src="assets/transaction_history_5_mobile.png" width="32%" /></kbd>
-<kbd><img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" /></kbd>
-<kbd><img src="assets/transaction_history_10_mobile.png" width="32%" /></kbd><br>
+<img src="assets/transaction_history_5_mobile.png" width="32%" />
+<img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" />
+<img src="assets/transaction_history_10_mobile.png" width="32%" /><br>
 
 ### Add New Chocolate Page
 
 1. Halaman Add New Chocolate<br>
-<kbd><img src="assets/add_new_chocolate.png" width="98%" /></kbd><br>
+<img src="assets/add_new_chocolate.png" width="98%" /><br>
 2. Halaman Add New Chocolate setelah menekan tombol Add Chocolate<br>
-<kbd><img src="assets/add_new_chocolate_success.png" width="98%" /></kbd><br>
+<img src="assets/add_new_chocolate_success.png" width="98%" /><br>
 3. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
-<kbd><img src="assets/add_new_chocolate_mobile.png" width="49%" /></kbd>
-<kbd><img src="assets/add_new_chocolate_success_mobile.png" width="49%" /></kbd><br>
+<img src="assets/add_new_chocolate_mobile.png" width="49%" />
+<img src="assets/add_new_chocolate_success_mobile.png" width="49%" /><br>
 
 ### Access Token Expiry Time
 
