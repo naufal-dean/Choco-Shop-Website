@@ -13,7 +13,7 @@ class TransactionController extends Controller
         $count = array_key_exists('count', $_GET) ? $_GET['count'] : 1;
 
         $res2 = \DatabaseConnection::prepare_query('
-            SELECT * FROM transaction JOIN chocolate ON (transaction.chocolate = chocolate.id) WHERE user_id = ? ORDER BY transaction_date DESC LIMIT ?, ?;
+            SELECT * FROM transaction JOIN chocolate ON (transaction.chocolate = chocolate.id) WHERE user_id = ? ORDER BY transaction_date DESC, transaction_time DESC LIMIT ?, ?;
         ');
         $res2->bind_param('iii', $user_id, $offset, $count);
 
