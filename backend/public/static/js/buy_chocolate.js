@@ -6,13 +6,16 @@ function callBuy(e) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
+                console.log(this.responseText)
                 // location.href = "."
             } else {
+                console.log('failed')
                 // location.href = "."
             }
         }
     }
-    xhr.open("PUT", "/api/chocolates/1/buy")
+    // /detail_chocolate/([1-9]*)/buy/
+    xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/buy")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}&address=${address}`)
 }

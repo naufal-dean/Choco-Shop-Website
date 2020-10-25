@@ -160,8 +160,9 @@ class ChocolateController extends Controller
 
         // update choco
         $new_stock = (int) $chocolate['stock'] - (int) $input['amount'];
-        $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ? WHERE id = ?;');
-        $res_2->bind_param('ii', $new_stock, $id);
+        $new_sold = (int) $chocolate['sold'] + (int) $input['amount'];
+        $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ?, sold = ? WHERE id = ?;');
+        $res_2->bind_param('iii', $new_stock, $new_sold, $id);
         $res_2->execute();
 
         // create transaction
