@@ -164,7 +164,7 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 <img src="assets/add_new_chocolate.png" width="98%" /><br>
 2. Halaman Add New Chocolate setelah menekan tombol Add Chocolate<br>
 <img src="assets/add_new_chocolate_success.png" width="98%" /><br>
-3. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
+3. Halaman Add New Chocolate di perangkat dengan layar kecil (tabel dapat di-scroll secara horizontal)<br>
 <img src="assets/add_new_chocolate_mobile.png" width="49%" />
 <img src="assets/add_new_chocolate_success_mobile.png" width="49%" /><br>
 
