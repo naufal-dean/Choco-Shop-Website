@@ -12,7 +12,7 @@ function callAddStock(e) {
         }
     }
     // /detail_chocolate/([1-9]*)/add/
-    xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/add")
+    xhr.open("POST", "/api/chocolates/" + getUrlPartAtPos(1) + "/add")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}`)
     // reset form
