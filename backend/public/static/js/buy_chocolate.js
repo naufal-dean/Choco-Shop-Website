@@ -6,11 +6,9 @@ function callBuy(e) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
-                console.log(this.responseText)
-                // location.href = "."
+                showNotification('Buy chocolate succeed!')
             } else {
-                console.log('failed')
-                // location.href = "."
+                showNotification('Buy failed! ' + JSON.parse(this.responseText).message)
             }
         }
     }
@@ -18,6 +16,9 @@ function callBuy(e) {
     xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/buy")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}&address=${address}`)
+    // reset form
+    let form = document.getElementById("buy-form")
+    form.reset()
 }
 
 function decAmount() {

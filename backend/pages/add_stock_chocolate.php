@@ -3,11 +3,13 @@
     <head>
         <title>Add Stock - Choco Shop</title>
         <link rel="stylesheet" href="/static/css/header.css">
+        <link rel="stylesheet" href="/static/css/notification.css">
         <link rel="stylesheet" href="/static/css/detail_chocolate.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
     <?php $nav_page = ''; include __DIR__.'/../components/header.php'; ?>
+    <?php $nav_page = ''; include __DIR__.'/../components/notification.php'; ?>
     <div id="container">
         <div id="chocolate-detail-container">
             <?php
@@ -62,6 +64,7 @@
     </div>
     <script src="/static/js/helper.js"></script>
     <script src="/static/js/responsive.js"></script>
+    <script src="/static/js/notification.js"></script>
     <script src="/static/js/add_stock_chocolate.js"></script>
     </body>
 </html>
