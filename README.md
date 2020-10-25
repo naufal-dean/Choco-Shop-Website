@@ -1,29 +1,42 @@
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
 ## Deskripsi Aplikasi Web
+Aplikasi website digunakan sebagai website untuk menjual coklat. Pada aplikasi web ini, terdapat 2 jenis pengguna, yaitu superuser dan user. Kedua pengguna dapat melakukan akun, login, logout, pencarian produk, dan mendapatkan penjelasan produk secara detail. User dapat melakukan pembelian produk dan melihat riwayat pembelian produk. Superuser adalah admin yang dapat menambah jenis coklat baru yang ingin dijual dan menambah ketersediaan coklat, serta mengakses apa yang bisa diakses oleh user. Untuk seorang pengguna yang belum melakukan login, pengguna hanya dapat menampilkan halaman login & register, namun bisa menampilkan penjelasan produk secara langsung melalui backend (namun tidak dapat mengubah data).
 
-<div align="center">
-<img src="https://i.imgur.com/0NI6Mkf.png" alt=""/>
-</div>
+Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile.
 
-Anda mungkin sudah tahu mengenai pabrik coklat terbesar seantero dunia, Willy Wangky.
-Akan tetapi, produsen terbaik tidak akan sukses tanpa konsumen dan distributor terbaik.
-Sebab coklat dari Willy Wangky sangat disenangi konsumen, maka Willy Wangky membutuhkan distributor yang handal dalam menangani penjualan coklat.
-Untungnya, Willy Wangky mengenal Jan.
-Jan sudah sangat pengalaman dengan distribusi makanan dan minuman ringan.
-Bahkan, Jan sudah memiliki usaha sendiri bernama Jan’s Cook.
+## Requirements
+-
 
-Willy Wangky pun meminta Jan untuk memberikan saran bagaimana cara menjual coklat-coklat miliknya pada konsumen.
-Apalagi di tengah pandemi seperti ini, beberapa toko penjualan sepi dikunjungi pengunjung.
-Jan tanpa pikir panjang, memberikan saran mengenai penjualan daring menggunakan aplikasi berbasis web.
-Willy Wangky sangat senang dengan hal ini, dan segera mengutus Jan untuk mencari programmer terbaik untuk pengembangannya.
+## Installation
+### MySQL
+#### Linux/Ubuntu
+- Install MySQL dengan menjalankan `sudo apt install mysql-server` pada terminal
+- Lakukan konfigurasi mysql dengan menjalankan `sudo mysql_secure_installation` pada terminal
+- Masukkan password baru untuk user `root`
+- Jalankan mysql dengan perintah `mysql -u root -p`
+- Masukkan password untuk user `root`
+- Buatlah user baru dengan menjalankan query `CREATE USER 'username'@'localhost' IDENTIFIED WITH authentication_plugin BY 'password';` dengan mengubah username dengan username anda dan password dengan password tertentu
+- Jalankan query `GRANT ALL PRIVILEGES ON * . * TO 'username'@'localhost';` dengan mengubah username dengan username sebelumnya
+#### Windows
+- Install MySQL dari https://dev.mysql.com/downloads/windows/installer/8.0.html
+- Lakukan konfigurasi mysql dengan menjalankan installer tersebut
+- Masukkan password baru untuk user `root`
+- Jalankan mysql dengan perintah `mysql -u root -p`
+- Masukkan password untuk user `root`
+- Buatlah user baru dengan menjalankan query `CREATE USER 'username'@'localhost' IDENTIFIED WITH authentication_plugin BY 'password';` dengan mengubah username dengan username anda dan password dengan password tertentu
+- Jalankan query `GRANT ALL PRIVILEGES ON * . * TO 'username'@'localhost';` dengan mengubah username dengan username sebelumnya
 
-Willy Wangky menginginkan web tersebut agar penggunanya dapat melakukan pendaftaran akun, login, logout, pencarian produk, mendapatkan penjelasan produk secara detail, pembelian produk dan dapat melihat riwayat pembelian produk, dan pekerjanya dapat dengan mudah menambahkan jenis coklat baru yang ingin dijual serta menambah ketersediaan coklat.
+### Setup Enviroment Variables
+- Buatlah file `env.php` pada folder `src/bootstrap` dengan mengikuti format pada `env.example.php`
+- Ubahlah `mysql_database_name` dengan nama tertentu, `mysql_username` dengan username user yang dibuat, dan `mysql_password` dengan password user yang dibuat
 
-Jan telah membuat desain user interface dengan low fidelity.
-Sekarang, dia merekrut kalian untuk membuat sebuah aplikasi web yang membantu penjualan coklat milik Willy Wangky.
-Disebabkan Jan sangat percaya dengan kalian, maka web yang kalian kembangkan dapat kalian hias dengan sebaik mungkin.
-Perlu diingat bahwa tata letak komponen harus mengikuti desain dari Jan.
+### Setup Database
+Jalankan file `src/database/migrations/driver.php` melalui XAMPP atau dengan menjalankan `php src/database/migrations/driver.php`.
+
+## How To Run
+### PHP Server
+Jalankan perintah `php -S 0.0.0.0:5000 -t src/public/` pada folder root git ini.
 
 ## Daftar Halaman
 
