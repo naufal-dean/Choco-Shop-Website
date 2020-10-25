@@ -20,7 +20,6 @@ class Router
         if ($uri[strlen($uri)-1] == "/") $uri .= "?";
         else $uri .= "/?";
 
-        // TODO: check if action controller and controller method exists
         self::$routes[str_replace("/", "\\/", $uri)][$method] = $action;
     }
 
@@ -64,7 +63,6 @@ class Router
      * @return mixed
      */
     public static function run() {
-        // TODO: unify url path format
         $requestUri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
         // Check if uri exists
