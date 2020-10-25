@@ -4,26 +4,13 @@ namespace App\Controllers;
 
 class TransactionController extends Controller
 {
-    private function get_user_info() {
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 HOUR);');
-        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
-        $res->execute();
-        $data = $res->get_result()->fetch_assoc();
-        $res->free_result();
-        if (!$res) {
-            header('Location: /login');
-            exit();
-        }
-        return $data;
-    }
-
     # return user transactions
     public function get_user_transactions() {
-        $user_info = $this->get_user_info();
+        $user_info = $this->check_auth();
         
         $user_id = $user_info['id'];
-        $offset = isset($_GET['offset']) ? $_GET['offset'] : 0;
-        $count = isset($_GET['count']) ? $_GET['count'] : 1;
+        $offset = array_key_exists('count', $_GET) ? $_GET['offset'] : 0;
+        $count = array_key_exists('count', $_GET) ? $_GET['count'] : 1;
 
         $res2 = \DatabaseConnection::prepare_query('
             SELECT * FROM transaction JOIN chocolate ON (transaction.chocolate = chocolate.id) WHERE user_id = ? ORDER BY transaction_date DESC LIMIT ?, ?;
@@ -41,7 +28,7 @@ class TransactionController extends Controller
 
     # return how many transactions does a user have
     public function get_user_transaction_count() {
-        $user_info = $this->get_user_info();
+        $user_info = $this->check_auth();
         $res = \DatabaseConnection::execute_query('SELECT count(*) AS count FROM transaction WHERE user_id = '.$user_info['id'].';');
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);

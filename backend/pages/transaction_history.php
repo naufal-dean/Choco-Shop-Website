@@ -14,7 +14,7 @@
         <h1>Transaction History</h1>
         <div class='transaction-per-page'>
           <span>Transaction per Page: </span>
-          <select name="transaction_per_page" class='transaction-per-page-select' onchange="update_transaction_per_page()">
+          <select name="transaction_per_page" class='transaction-per-page-select' onchange="update_transaction_per_page()" value="5">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>

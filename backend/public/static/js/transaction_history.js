@@ -1,4 +1,4 @@
-let TRANSACTION_PER_PAGE = 15
+let TRANSACTION_PER_PAGE = 5
 
 let xhr_transaction = new XMLHttpRequest();
 let xhr_count = new XMLHttpRequest();
@@ -34,7 +34,6 @@ xhr_transaction.onreadystatechange = function() {
       if (transaction['id'] >= 0) {
         part = " href='/detail_chocolate/"+transaction['id']+"'"
       }
-
       content += "<div class='transaction'>";
       content += "<a class='transaction-column c1'"+part+">" + transaction['name'] + "</a>";
       content += "<span class='transaction-column c2'>" + transaction['amount'] + "</span>";
@@ -80,8 +79,9 @@ function go_left() {
   if (current_page > 1) {
     current_page -= 1;
     transactions.innerHTML = '';
-    xhr_transaction.open("GET", "/api/transactions/", true);
-    xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+    let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+    xhr_transaction.open("GET", "/api/transactions?"+params, true);
+    xhr_transaction.send();
     xhr_count.open("GET", "/api/transactions/count", true);
     xhr_count.send();
   }
@@ -92,8 +92,9 @@ function go_right() {
   if (current_page < max_page) {
     current_page += 1;
     transactions.innerHTML = '';
-    xhr_transaction.open("GET", "/api/transactions/", true);
-    xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+    let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+    xhr_transaction.open("GET", "/api/transactions?"+params, true);
+    xhr_transaction.send();
     xhr_count.open("GET", "/api/transactions/count", true);
     xhr_count.send();
   }
@@ -103,14 +104,16 @@ function go_right() {
 function update_transaction_per_page() {
   TRANSACTION_PER_PAGE = parseInt(tpp.value);
   transactions.innerHTML = '';
-  xhr_transaction.open("GET", "/api/transactions/", true);
-  xhr_transaction.send(`offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`);
+  let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+  xhr_transaction.open("GET", "/api/transactions?"+params, true);
+  xhr_transaction.send();
   xhr_count.open("GET", "/api/transactions/count", true);
   xhr_count.send();
 }
 
 number.innerHTML = current_page
-xhr_transaction.open("GET", "/api/transactions/", true);
-xhr_transaction.send(`offset=0&count=${TRANSACTION_PER_PAGE}`);
+let params = `offset=0&count=${TRANSACTION_PER_PAGE}`
+xhr_transaction.open("GET", "/api/transactions?"+params, true);
+xhr_transaction.send();
 xhr_count.open("GET", "/api/transactions/count", true);
 xhr_count.send();
