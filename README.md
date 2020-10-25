@@ -39,16 +39,34 @@
 
 ## How To Run
 
-## Screenshots
+## Anggota Kelompok
+
+1. Yonatan Viody (13518148)
+2. Naufal Dean Anugrah (13518123)
+3. Muhammad Rizky Ismail Faizal (13518148)
 
 ## Pembagian Tugas
 
 ### Frontend
-1. Login : 13518xxx, 13518xxx
-2. Register : 13518xxx
-3. (Lanjutkan …)
+1. Login: 13518120
+2. Register: 13518120
+3. Dashboard: 13518120
+4. Search Result: 13518123
+5. Chocolate Detail: 13518123
+6. Transaction History: 13518148
+7. Add New Chocolate: 13518148
+8. Access Token Expiration (bonus): 13518120
+9. Real-Time Stock Update (bonus): 13518123
+10. Responsive View (bonus): 13518120, 13518123, 13518148
 
 ### Backend
-1. Login : 13518xxx, 13518xxx
-2. Register : 13518xxx
-3. (Lanjutkan…)
+1. Login: 13518120
+2. Register: 13518120
+3. Dashboard: 13518120
+4. Search Result: 13518123
+5. Chocolate Detail: 13518123
+6. Transaction History: 13518148
+7. Add New Chocolate: 13518148
+8. Access Token Expiration (bonus): 13518120
+9. Real-Time Stock Update (bonus): 13518123
+10. Responsive View (bonus): 13518120, 13518123, 13518148
