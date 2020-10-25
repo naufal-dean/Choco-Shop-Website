@@ -99,7 +99,7 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 ### Dashboard page
 1. Halaman Dashboard<br>
 <img src="assets/dashboard.png" width="98%" /><br>
-2. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
+2. Halaman Dashboard di perangkat dengan layar kecil<br>
 <img src="assets/dashboard_mobile.png" width="32%" />
 <img src="assets/navbar_mobile.png" width="32%" /><br>
 
