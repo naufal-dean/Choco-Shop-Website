@@ -9,7 +9,7 @@ Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS,
 -
 
 ## Installation
-### MySQL
+### Prepare MySQL
 #### Linux/Ubuntu
 - Install MySQL dengan menjalankan `sudo apt install mysql-server` pada terminal
 - Lakukan konfigurasi mysql dengan menjalankan `sudo mysql_secure_installation` pada terminal
@@ -35,52 +35,6 @@ Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS,
 Jalankan file `src/database/migrations/driver.php` melalui XAMPP atau dengan menjalankan `php src/database/migrations/driver.php`.
 
 ## How To Run
-### PHP Server
-Jalankan perintah `php -S 0.0.0.0:5000 -t src/public/` pada folder root git ini.
-
-## Daftar Halaman
-
-### Login Page
-
-### Register Page
-
-### Dashboard page
-
-### Search Result page
-
-### Chocolate Detail page
-
-### Transaction History Page
-1. Halaman Transaction History<br>
-<img src="assets/transaction_history_5.png" width="98%" title=""/><br>
-2. Halaman Transaction History dengan pengaturan transaksi per halaman yang berbeda<br>
-<img src="assets/transaction_history_10.png" width="98%" /><br>
-3. Halaman Transaction History di perangkat dengan layar kecil<br>
-<img src="assets/transaction_history_5_mobile.png" width="32%" />
-<img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" />
-<img src="assets/transaction_history_10_mobile.png" width="32%" /><br>
-
-### Add New Chocolate Page
-
-1. Halaman Add New Chocolate<br>
-<img src="assets/add_new_chocolate.png" width="98%" /><br>
-2. Halaman Add New Chocolate setelah menekan tombol Add Chocolate<br>
-<img src="assets/add_new_chocolate_success.png" width="98%" /><br>
-3. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
-<img src="assets/add_new_chocolate_mobile.png" width="49%" />
-<img src="assets/add_new_chocolate_success_mobile.png" width="49%" /><br>
-
-### Access Token Expiry Time
-
-### Real-Time Stock Update
-
-### Responsive View
-
-## Daftar Requirement
-
-## Instalasi
-
-## Cara Menjalankan
 
 ### Memakai php built in server:
 1. Jalankan command `php -S localhost:<port> -t <path/to/folder/public>` di cmd atau terminal. Sebagai contoh jika menggunakan port 8080 dan sekarang cmd atau terminal berada di folder src repository ini, commandnya adalah `php -S localhost:8080 -t public`.
@@ -128,7 +82,43 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 6. Buka alamat `localhost` di browser. Atau `localhost:<port>` jika port default Apache server dari XAMPP telah diubah.
 7. Website siap digunakan.
 
-## Screenshots
+## Daftar Halaman
+
+### Login Page
+
+### Register Page
+
+### Dashboard page
+
+### Search Result page
+
+### Chocolate Detail page
+
+### Transaction History Page
+1. Halaman Transaction History<br>
+<img src="assets/transaction_history_5.png" width="98%" title=""/><br>
+2. Halaman Transaction History dengan pengaturan transaksi per halaman yang berbeda<br>
+<img src="assets/transaction_history_10.png" width="98%" /><br>
+3. Halaman Transaction History di perangkat dengan layar kecil<br>
+<img src="assets/transaction_history_5_mobile.png" width="32%" />
+<img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" />
+<img src="assets/transaction_history_10_mobile.png" width="32%" /><br>
+
+### Add New Chocolate Page
+
+1. Halaman Add New Chocolate<br>
+<img src="assets/add_new_chocolate.png" width="98%" /><br>
+2. Halaman Add New Chocolate setelah menekan tombol Add Chocolate<br>
+<img src="assets/add_new_chocolate_success.png" width="98%" /><br>
+3. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
+<img src="assets/add_new_chocolate_mobile.png" width="49%" />
+<img src="assets/add_new_chocolate_success_mobile.png" width="49%" /><br>
+
+### Access Token Expiry Time
+
+### Real-Time Stock Update
+
+### Responsive View
 
 ## Anggota Kelompok
 
