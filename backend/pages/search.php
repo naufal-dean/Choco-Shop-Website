@@ -10,7 +10,7 @@
         <?php $nav_page = ''; include __DIR__.'/../components/header.php'; ?>
         <div id="chocolates-search-container">
         </div>
-        <div class="page-nav">
+        <div id="page-nav" class="hidden">
             <?php
                 for ($i = 1; $i <= $total_pages; $i++) {
                     echo '<a class="page_number" onclick="getChocolates('.$i.')">'.$i.'</a>';

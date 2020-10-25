@@ -39,11 +39,11 @@ function getChocolates(page, async=true) {
                 desc.appendChild(info)
 
                 var amountSold = document.createElement("p")
-                amountSold.textContent = "Amount sold: "+chocolate['sold']
+                amountSold.textContent = "Amount sold	: "+chocolate['sold']
                 info.appendChild(amountSold)
 
                 var price = document.createElement("p")
-                price.textContent = "Price: "+chocolate['price']
+                price.textContent = `Price		: Rp.${chocolate['price']},00`
                 info.appendChild(price)
 
                 var amountRemaining = document.createElement("p")
@@ -51,7 +51,7 @@ function getChocolates(page, async=true) {
                 info.appendChild(amountRemaining)
 
                 var description = document.createElement("p")
-                description.textContent = "Description:"
+                description.textContent = "Description	:"
                 info.appendChild(description)
 
                 var descriptionValue = document.createElement("p")
@@ -65,4 +65,7 @@ function getChocolates(page, async=true) {
     xhr.send()
 }
 
-getChocolates(1)
+getChocolates(1, false)
+var nav = document.getElementById("page-nav")
+nav.classList.toggle("hidden")
+nav.classList.toggle("flex")
