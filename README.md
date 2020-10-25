@@ -7,7 +7,7 @@ Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS,
 
 ## Requirements
 - MySQL
-- PHP Server (Apache / Built In PHP Server)
+- PHP Server with openssl and mysqli support
 
 ## Installation
 ### Prepare MySQL
