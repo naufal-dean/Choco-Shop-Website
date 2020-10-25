@@ -15,10 +15,8 @@
     font-weight: bold;
     text-decoration: none;
     overflow-wrap: unset;
-}
-
-.nav-menu:visited {
     color: white;
+    transition: background-color .5s ease;
 }
 
 .nav-menu:hover:not(.nav-active) {
