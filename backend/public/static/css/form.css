@@ -22,7 +22,8 @@ input {
     padding: 20px 150px;
     border-radius: 20px;
     background-color: rgba(148, 183, 235, 0.8);
-    animation: 0.5s open ease;
+    -webkit-animation: open 0.5s ease;
+    animation: open 0.5s ease;
     opacity: 0.9;
 }
 
@@ -32,7 +33,8 @@ input {
     padding: 1px;
     background-color: white;
     box-shadow: inset 0 0 3px 15px rgba(150, 150, 150,0.75);
-    animation: 1s appear ease;
+    -webkit-animation: appear 1s ease;
+    animation: appear 1s ease;
 }
 
 #form-box {
@@ -41,7 +43,8 @@ input {
     background-color: #54431C;
     color: white;
     box-shadow: 0 0 3px 20px rgba(65, 34, 20, 0.75);
-    animation: 1s appear ease;
+    -webkit-animation: appear 1s ease;
+    animation: appear 1s ease;
 }
 
 .form-input-box-container {
@@ -141,7 +144,28 @@ input {
     }
 }
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.4;
+    }
+}
+
 @-webkit-keyframes open {
+    from {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes open {
     from {
         transform: scaleY(0);
     }
