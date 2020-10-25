@@ -14,7 +14,13 @@ let right_button = document.getElementsByClassName('transaction-table-controller
 
 xhr_transaction.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    let data = JSON.parse(xhr_transaction.responseText)['data'];
+    let data;
+    try {
+      data = JSON.parse(xhr_transaction.responseText)['data'];
+    } catch (err) {
+      console.log(xhr_transaction.responseText);
+      return;
+    }
 
     if (data.length < 1) {
       data = [{
@@ -44,13 +50,24 @@ xhr_transaction.onreadystatechange = function() {
       content += "</div>";
     });
     transactions.innerHTML = content;
+
+    xhr_count.abort();
+    xhr_count.open("GET", "/api/transactions/count", true);
+    xhr_count.send();
   }
 };
 
 xhr_count.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    let data = JSON.parse(xhr_count.responseText)['data'];
-    max_page = Math.ceil(data/TRANSACTION_PER_PAGE)
+    let data;
+    try {
+      data = JSON.parse(xhr_count.responseText)['data'];
+    } catch (err) {
+      console.log(xhr_count.responseText);
+      return;
+    }
+    
+    max_page = Math.ceil(data/TRANSACTION_PER_PAGE);
 
     if (max_page == 0) {
       max_page = 1;
@@ -79,38 +96,34 @@ function go_left() {
   if (current_page > 1) {
     current_page -= 1;
     let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+    xhr_transaction.abort();
     xhr_transaction.open("GET", "/api/transactions?"+params, true);
     xhr_transaction.send();
-    xhr_count.open("GET", "/api/transactions/count", true);
-    xhr_count.send();
   }
-  number.innerHTML = current_page
 }
 
 function go_right() {
   if (current_page < max_page) {
     current_page += 1;
     let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+    xhr_transaction.abort();
     xhr_transaction.open("GET", "/api/transactions?"+params, true);
     xhr_transaction.send();
-    xhr_count.open("GET", "/api/transactions/count", true);
-    xhr_count.send();
   }
-  number.innerHTML = current_page
 }
 
 function update_transaction_per_page() {
   TRANSACTION_PER_PAGE = parseInt(tpp.value);
+  current_page = 1;
+  number.innerHTML = current_page
   let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
+  xhr_transaction.abort();
   xhr_transaction.open("GET", "/api/transactions?"+params, true);
   xhr_transaction.send();
-  xhr_count.open("GET", "/api/transactions/count", true);
-  xhr_count.send();
 }
 
 number.innerHTML = current_page
 let params = `offset=0&count=${TRANSACTION_PER_PAGE}`
+xhr_transaction.abort();
 xhr_transaction.open("GET", "/api/transactions?"+params, true);
 xhr_transaction.send();
-xhr_count.open("GET", "/api/transactions/count", true);
-xhr_count.send();
