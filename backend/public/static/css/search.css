@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#chocolates-search-container {
+    margin: 50px;
+}
+
+.chocolate-search-container {
+    background-color: #e6a163;
+    border-radius: 0 20px;
+    cursor: pointer;
+    display: flex;
+    min-height: 200px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.chocolate-search-container:hover {
+    transform: scale(1.03);
+    -webkit-box-shadow: 0px 0px 34px 0px rgba(143,23,23,1);
+    -moz-box-shadow: 0px 0px 34px 0px rgba(143,23,23,1);
+    box-shadow: 0px 0px 34px 0px rgba(143,23,23,1);
+}
+
+.chocolate-search-img {
+    background-color: #654321;
+    border-radius: 0 10px;
+    color: white;
+    min-height: 200px;
+    min-width: 150px;
+    max-height: 200px;
+    max-width: 150px;
+    text-align: center;
+}
+
+.chocolate-search-desc {
+    padding-left: 40px;
+}
+
+.chocolate-search-desc h2,
+.chocolate-search-desc p {
+    margin: 0;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.page-nav a {
+    color: #654321;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.page-nav a.active-page {
+    color: #e6a163;
+}
+
+.page-nav a:hover {
+    color: #e6a163;
+    -webkit-transition: all ease-in-out 100ms;
+    transition: all ease-in-out 100ms;
+}

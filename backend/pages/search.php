@@ -3,19 +3,19 @@
     <head>
         <title>Search Result - Choco Shop</title>
         <link rel="stylesheet" href="/static/css/header.css">
-        <link rel="stylesheet" href="/static/css/dashboard.css">
+        <link rel="stylesheet" href="/static/css/search.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <?php $nav_page = 'dashboard'; include __DIR__.'/../components/header.php'; ?>
-        <div id="container">
+        <div id="chocolates-search-container">
             <?php
             // page content
             foreach ($chocolates_showed as $chocolate) {
                 echo '
                     <div class="chocolate-search-container" onclick="location.href=\'/detail_chocolate/'.$chocolate['id'].'\';">
                         <div class="chocolate-search-image">
-                            <img class="chocolate-search-image"
+                            <img class="chocolate-search-img"
                                 src="/static/images/chocolates/chocolate_'
                                 .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
                                 alt="'.$chocolate['name'].'">
@@ -33,6 +33,7 @@
                     </div>
                 ';
             }
+            echo '<div class="page-nav">';
             // page link
             $query_arr = [];
             if (isset($_GET['name'])) $query_arr['name'] = $_GET['name'];
@@ -45,13 +46,17 @@
             // selected page
             for ($i = 1; $i <= $total_page; $i++) {
                 $query_arr['page'] = $i;
-                echo '<a href="?'.http_build_query($query_arr).'">'.$i.'</a>';
+                if ($i === $page)
+                    echo '<a class="active-page" href="?'.http_build_query($query_arr).'">'.$i.'</a>';
+                else
+                    echo '<a href="?'.http_build_query($query_arr).'">'.$i.'</a>';
             }
             // next page
             if ($page < $total_page) {
                 $query_arr['page'] = $page + 1;
                 echo '<a href="?'.http_build_query($query_arr).'">&gt;&gt;</a>';
             }
+            echo '</div>';
             ?>
         </div>
         <script src="/static/js/responsive.js"></script>
