@@ -24,10 +24,10 @@
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>
-                                    <li><span class="label-form">Amount sold:</span> <span id="sold">'.$chocolate['sold'].'</span></li>
-                                    <li><span class="label-form">Price:</span> Rp '.$chocolate['price'].',00</li>
-                                    <li><span class="label-form">Amount:</span> <span id="stock">'.$chocolate['stock'].'</span></li>
-                                    <li><span class="label-form">Description:</span><br>'.$chocolate['description'].'</li>
+                                    <li><span class="label-form">Amount sold      : </span><span id="sold">'.$chocolate['sold'].'</span></li>
+                                    <li><span class="label-form">Price            : </span>Rp '.$chocolate['price'].',00</li>
+                                    <li><span class="label-form">Amount           : </span><span id="stock">'.$chocolate['stock'].'</span></li>
+                                    <li><span class="label-form">Description      : </span><br>'.$chocolate['description'].'</li>
                                 </ul>
                             </div>
                         </div>                

@@ -28,10 +28,10 @@
                                 <div class="chocolate-detail-desc">
                                     <ul>
                                         <li><h3>'.$chocolate['name'].'</h3></li>
-                                        <li><span class="label-form">Amount sold:</span> <span id="sold">'.$chocolate['sold'].'</span></li>
-                                        <li><span class="label-form">Price:</span> Rp <span id="price">'.$chocolate['price'].'</span>,00</li>
-                                        <li><span class="label-form">Amount remaining:</span> <span id="stock">'.$chocolate['stock'].'</span></li>
-                                        <li><span class="label-form">Description:</span> '.$chocolate['description'].'</li>
+                                        <li><span class="label-form">Amount sold      : </span><span id="sold">'.$chocolate['sold'].'</span></li>
+                                        <li><span class="label-form">Price            : </span>Rp <span id="price">'.$chocolate['price'].'</span>,00</li>
+                                        <li><span class="label-form">Amount remaining : </span><span id="stock">'.$chocolate['stock'].'</span></li>
+                                        <li><span class="label-form">Description      : </span>'.$chocolate['description'].'</li>
                                         <li>
                                             <div class="amount-price-box">
                                                 <ul class="amount-box">

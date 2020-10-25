@@ -53,6 +53,7 @@ body {
     height: 200px;
     background-color: #654321;
     border-radius: 10px;
+    object-fit: contain;
     text-align: center;
 }
 

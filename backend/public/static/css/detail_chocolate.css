@@ -20,6 +20,7 @@ body {
     min-width: 200px;
     max-height: 250px;
     max-width: 200px;
+    object-fit: contain;
     text-align: center;
 }
 
@@ -77,6 +78,7 @@ body {
 .chocolate-detail-address .label-form {
     color: #654321;
     font-weight: bold;
+    white-space: pre;
 }
 
 .chocolate-detail-option {
