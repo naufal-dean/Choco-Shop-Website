@@ -24,9 +24,9 @@
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>
-                                    <li><span class="label-form">Amount sold:</span> '.$chocolate['sold'].'</li>
+                                    <li><span class="label-form">Amount sold:</span> <span id="sold">'.$chocolate['sold'].'</span></li>
                                     <li><span class="label-form">Price:</span> Rp '.$chocolate['price'].',00</li>
-                                    <li><span class="label-form">Amount:</span> '.$chocolate['stock'].'</li>
+                                    <li><span class="label-form">Amount:</span> <span id="stock">'.$chocolate['stock'].'</span></li>
                                     <li><span class="label-form">Description:</span><br>'.$chocolate['description'].'</li>
                                 </ul>
                             </div>
@@ -43,6 +43,9 @@
                 ?>
             </div>
         </div>
-    <script src="/static/js/responsive.js"></script>
+        <script src="/static/js/helper.js"></script>
+        <script src="/static/js/responsive.js"></script>
+        <script src="/static/js/choco_detail_updater.js"></script>
+        <script src="/static/js/detail_chocolate.js"></script>
     </body>
 </html>

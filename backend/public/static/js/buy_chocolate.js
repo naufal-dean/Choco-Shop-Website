@@ -19,6 +19,7 @@ function callBuy(e) {
     // reset form
     let form = document.getElementById("buy-form")
     form.reset()
+    document.getElementById("total-price").innerHTML = (0).toString()
 }
 
 function decAmount() {
@@ -48,3 +49,26 @@ function updateTotalPrice() {
     amount = isNaN(amount) ? 0 : amount
     document.getElementById("total-price").innerHTML = (price * amount).toString()
 }
+
+// start ajax request
+function updateSucceed(res) {
+    res = JSON.parse(res)
+    document.getElementById("sold").innerHTML = res.data.sold.toString()
+    document.getElementById("stock").innerHTML = res.data.stock.toString()
+    let newStock = parseInt(res.data.stock)
+    newStock = isNaN(newStock) ? 0 : newStock
+    let price = parseInt(document.getElementById("price").innerHTML)
+    price = isNaN(price) ? 0 : price
+    let amount = parseInt(document.getElementById("amount").value)
+    amount = isNaN(amount) ? 0 : amount
+    if (amount > newStock) {
+        document.getElementById("amount").value = newStock
+        document.getElementById("total-price").innerHTML = (price * newStock).toString()
+    }
+}
+
+function updateFailed(res) {
+    console.log("Failed to update chocolate data. Error: " + JSON.parse(res).message)
+}
+
+startUpdating(getUrlPartAtPos(1), updateSucceed, updateFailed)
