@@ -41,10 +41,23 @@ Jalankan perintah `php -S 0.0.0.0:5000 -t src/public/` pada folder root git ini.
 ## Daftar Halaman
 
 ### Login Page
+1. Halaman Login<br>
+<img src="assets/login.png" width="98%" />
+2. Halaman Login di perangkat dengan layar kecil<br>
+<img src="assets/login_mobile.png" width="32%" />
 
 ### Register Page
+1. Halaman Register<br>
+<img src="assets/register.png" width="98%" />
+2. Halaman Register di perangkat dengan layar kecil<br>
+<img src="assets/register_mobile.png" width="32%" />
 
 ### Dashboard page
+1. Halaman Dashboard<br>
+<img src="assets/dashboard.png" width="98%" />
+2. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
+<img src="assets/dashboard_mobile.png" width="32%" />
+<img src="assets/navbar_mobile.png" width="32%" />
 
 ### Search Result page
 
@@ -157,7 +170,7 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ## Anggota Kelompok
 
-1. Yonatan Viody (13518148)
+1. Yonatan Viody (13518120)
 2. Naufal Dean Anugrah (13518123)
 3. Muhammad Rizky Ismail Faizal (13518148)
 
