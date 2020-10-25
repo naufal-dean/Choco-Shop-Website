@@ -24,6 +24,10 @@ function getChocolates(page, async=true) {
                 var image = document.createElement("img")
                 image.className = "chocolate-search-img"
                 image.src = `/static/images/chocolates/chocolate_${chocolate['id']}.${chocolate['image_file_type']}`
+                image.onerror = function() {
+                    this.onerror=null;
+                    this.src="/static/images/chocolates/default_choco.jpg";
+                }
                 image.alt = chocolate['name']
                 imageBox.appendChild(image)
 

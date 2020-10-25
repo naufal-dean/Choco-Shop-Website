@@ -23,6 +23,7 @@
                                     <img class="chocolate-detail-img" 
                                         src="/static/images/chocolates/chocolate_'
                                         .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
+                                        onerror="this.onerror=null; this.src=\'/static/images/chocolates/default_choco.jpg\'"
                                         alt="'.$chocolate['name'].'">
                                 </div>
                                 <div class="chocolate-detail-desc">
