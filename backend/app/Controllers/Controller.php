@@ -5,6 +5,30 @@ namespace App\Controllers;
 class Controller
 {
     /**
+     * @param bool $check_su
+     * @return array|null
+     */
+    public function check_auth($check_su=false) {
+        if (empty($_COOKIE['CHOCO_SESSION'])) {
+            header('Location: /login');
+            exit();
+        }
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
+        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
+        $res->execute();
+        $res = $res->get_result()->fetch_assoc();
+        if ($check_su && !$res['is_superuser']) {
+            header('Location: /');
+            exit();
+        }
+        if (!$res) {
+            header('Location: /login');
+            exit();
+        }
+        return $res;
+    }
+
+    /**
      * @param array $data
      * @param int $statusCode
      * @return false|string
@@ -59,19 +83,5 @@ class Controller
      */
     public function respondErrorCode($message, $statusCode) {
         return $this->respondError($message, null, $statusCode);
-    }
-
-    public function test() {
-        return $this->respondSuccess('this is test message', [
-            'some' => 'test',
-            'random' => 'data',
-        ], 201);
-    }
-
-    public function test2() {
-        return $this->respondSuccess('this is another test message', [
-            'another' => 'random',
-            'test' => 'data',
-        ], 500);
     }
 }

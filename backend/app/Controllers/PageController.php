@@ -4,25 +4,6 @@ namespace App\Controllers;
 
 class PageController extends Controller
 {
-    public function check_auth($check_su=false) {
-        if (empty($_COOKIE['CHOCO_SESSION'])) {
-            header('Location: /login');
-            exit();
-        }
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
-        $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
-        $res->execute();
-        $res = $res->get_result()->fetch_assoc();
-        if ($check_su && !$res['is_superuser']) {
-            header('Location: /');
-            exit();
-        }
-        if (!$res) {
-            header('Location: /login');
-            exit();
-        }
-        return $res;
-    }
     public function login_page() {
         include("../pages/login.php");
     }
@@ -32,7 +13,6 @@ class PageController extends Controller
     }
 
     public function dashboard_page() {
-        $page = "/";
         $user_info = $this->check_auth();
         $chocolates = \DatabaseConnection::execute_query("SELECT * FROM chocolate ORDER BY sold DESC LIMIT 10;");
         include("../pages/dashboard.php");
