@@ -4,6 +4,7 @@
         <title><?php if (isset($message_title)) {echo $message_title.' - ';}?>Choco Shop</title>
         <link rel="stylesheet" href="/static/css/header.css">
         <link rel="stylesheet" href="/static/css/rizky.css">
+        <link rel="icon" href="/static/images/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
