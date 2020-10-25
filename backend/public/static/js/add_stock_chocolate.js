@@ -5,11 +5,9 @@ function callAddStock(e) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
-                console.log('succeed')
-                // location.href = "."
+                showNotification('Add chocolate stock succeed!')
             } else {
-                console.log('failed')
-                // location.href = "."
+                showNotification('Add failed! ' + JSON.parse(this.responseText).message)
             }
         }
     }
@@ -17,6 +15,9 @@ function callAddStock(e) {
     xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/add")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}`)
+    // reset form
+    let form = document.getElementById("add-stock-form")
+    form.reset()
 }
 
 function decAmount() {
