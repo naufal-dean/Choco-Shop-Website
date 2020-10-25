@@ -78,7 +78,6 @@ xhr_count.onreadystatechange = function() {
 function go_left() {
   if (current_page > 1) {
     current_page -= 1;
-    transactions.innerHTML = '';
     let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
     xhr_transaction.open("GET", "/api/transactions?"+params, true);
     xhr_transaction.send();
@@ -91,7 +90,6 @@ function go_left() {
 function go_right() {
   if (current_page < max_page) {
     current_page += 1;
-    transactions.innerHTML = '';
     let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
     xhr_transaction.open("GET", "/api/transactions?"+params, true);
     xhr_transaction.send();
@@ -103,7 +101,6 @@ function go_right() {
 
 function update_transaction_per_page() {
   TRANSACTION_PER_PAGE = parseInt(tpp.value);
-  transactions.innerHTML = '';
   let params = `offset=${(current_page-1)*TRANSACTION_PER_PAGE}&count=${TRANSACTION_PER_PAGE}`;
   xhr_transaction.open("GET", "/api/transactions?"+params, true);
   xhr_transaction.send();
