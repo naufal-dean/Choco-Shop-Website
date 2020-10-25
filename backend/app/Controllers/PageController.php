@@ -34,14 +34,10 @@ class PageController extends Controller
         $user_info = $this->check_auth();
 
         // fetch data
-        $limit = isset($_GET['limit']) && ((int) $_GET['limit'] > 0) ? ((int) $_GET['limit']) : 10;
-        $page = isset($_GET['page']) && ((int) $_GET['page'] > 0) ? ((int) $_GET['page']) : 1;
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE name LIKE CONCAT("%",?,"%");');
+        $res = \DatabaseConnection::prepare_query('SELECT COUNT(*) as total FROM chocolate WHERE name LIKE CONCAT("%",?,"%");');
         $res->bind_param('s', $_GET['name']);
         $res->execute();
-        $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-        $chocolates_showed = array_slice($chocolates, ($page - 1) * $limit, $limit);
-        $total_page = (int) ceil(count($chocolates) / $limit);
+        $total_pages = ceil($res->get_result()->fetch_assoc()['total'] / 10);
 
         // show page
         include("../pages/search.php");
