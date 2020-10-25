@@ -119,17 +119,19 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 #### Chocolate Detail - Buy Chocolate
 
-<img src="assets/detail_superuser.png" width="98%" />
-<img src="assets/detail_superuser_mobile.png" width="32%" />
+<img src="assets/buy.png" width="98%" />
+<img src="assets/buy_succeed.png" width="98%" />
+<img src="assets/buy_mobile.png" width="32%" />
 
 #### Chocolate Detail - Superuser
 
-<img src="assets/buy.png" width="98%" />
-<img src="assets/buy_mobile.png" width="32%" />
+<img src="assets/detail_superuser.png" width="98%" />
+<img src="assets/detail_superuser_mobile.png" width="32%" />
 
 #### Chocolate Detail - Add Stock
 
 <img src="assets/add_stock.png" width="98%" />
+<img src="assets/add_stock_succeed.png" width="98%" />
 <img src="assets/add_stock_mobile.png" width="32%" />
 
 ### Transaction History Page
