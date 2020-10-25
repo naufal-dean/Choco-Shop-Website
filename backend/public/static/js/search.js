@@ -1,3 +1,4 @@
+var name = document.getElementById("search-name").value
 var pageLoc = 1
 function getChocolates(page, async=true) {
     var pageNumbers = document.getElementsByClassName("page_number")

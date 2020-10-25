@@ -17,7 +17,7 @@
                 }
             ?>
         </div>
-        <input type="hidden" value="<?php echo urlencode($_GET['name']); ?>">
+        <input id="search-name" type="hidden" value="<?php echo urlencode($_GET['name']); ?>">
         <script src="/static/js/search.js"></script>
         <script src="/static/js/responsive.js"></script>
     </body>
