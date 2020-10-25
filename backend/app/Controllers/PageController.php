@@ -60,7 +60,7 @@ class PageController extends Controller
         $res->bind_param('s', $_GET['name']);
         $res->execute();
         $chocolates = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-        $chocolates_showed = array_slice($chocolates, ($page - 1) * $limit, $page * $limit);
+        $chocolates_showed = array_slice($chocolates, ($page - 1) * $limit, $limit);
         $total_page = (int) ceil(count($chocolates) / $limit);
 
         // show page
