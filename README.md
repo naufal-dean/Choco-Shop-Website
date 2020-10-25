@@ -6,7 +6,8 @@ Aplikasi website digunakan sebagai website untuk menjual coklat. Pada aplikasi w
 Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile.
 
 ## Requirements
--
+- MySQL
+- PHP Server (Apache / Built In PHP Server)
 
 ## Installation
 ### Prepare MySQL
