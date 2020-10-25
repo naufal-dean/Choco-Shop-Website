@@ -3,7 +3,7 @@
 ## Deskripsi Aplikasi Web
 Aplikasi website digunakan sebagai website untuk menjual coklat. Pada aplikasi web ini, terdapat 2 jenis pengguna, yaitu superuser dan user. Kedua pengguna dapat melakukan akun, login, logout, pencarian produk, dan mendapatkan penjelasan produk secara detail. User dapat melakukan pembelian produk dan melihat riwayat pembelian produk. Superuser adalah admin yang dapat menambah jenis coklat baru yang ingin dijual dan menambah ketersediaan coklat, serta mengakses apa yang bisa diakses oleh user. Untuk seorang pengguna yang belum melakukan login, pengguna hanya dapat menampilkan halaman login & register, namun bisa menampilkan penjelasan produk secara langsung melalui backend (namun tidak dapat mengubah data).
 
-Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile.
+Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile. Adapun beberapa definisi tambahan yang kami gunakan pada aplikasi website tersebut, yaitu access token dan cookie untuk login memiliki expiry time 1 jam, real-time refresh stock dilakukan setiap 1 detik, dan pagination pada search page memiliki jumlah 10 coklat per halaman.
 
 ## Requirements
 - MySQL
@@ -106,34 +106,47 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ### Search Result page
 
-<img src="assets/search.png" width="98%" />
+1. Halaman Search Result<br>
+<img src="assets/search.png" width="98%" /><br>
+2. Halaman Search Result (Not Found)<br>
+<img src="assets/search_not_found.png" width="98%" /><br>
+3. Halaman Search Result di perangkat dengan layar kecil<br>
 <img src="assets/search_mobile.png" width="32%" />
-<img src="assets/search_not_found.png" width="98%" />
-<img src="assets/search_not_found_mobile.png" width="32%" />
+<img src="assets/search_not_found_mobile.png" width="32%" /><br>
 
 ### Chocolate Detail page
 
 #### Chocolate Detail - User
 
-<img src="assets/detail_user.png" width="98%" />
-<img src="assets/detail_user_mobile.png" width="32%" />
+1. Halaman Chocolate Detail dilihat oleh User biasa<br>
+<img src="assets/detail_user.png" width="98%" /><br>
+2. Halaman Chocolate Detail dilihat oleh User biasa pada layar kecil<br>
+<img src="assets/detail_user_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Buy Chocolate
 
-<img src="assets/buy.png" width="98%" />
-<img src="assets/buy_succeed.png" width="98%" />
-<img src="assets/buy_mobile.png" width="32%" />
+1. Halaman Buy Chocolate<br>
+<img src="assets/buy.png" width="98%" /><br>
+2. Halaman Buy Chocolate saat pembelian sukses<br>
+<img src="assets/buy_succeed.png" width="98%" /><br>
+3. Halaman Buy Chocolate di perangkat dengan layar kecil<br>
+<img src="assets/buy_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Superuser
 
-<img src="assets/detail_superuser.png" width="98%" />
-<img src="assets/detail_superuser_mobile.png" width="32%" />
+1. Halaman Chocolate Detail dilihat oleh Superuser<br>
+<img src="assets/detail_superuser.png" width="98%" /><br>
+2. Halaman Chocolate Detail dilihat oleh Superuser pada layar kecil<br>
+<img src="assets/detail_superuser_mobile.png" width="32%" /><br>
 
 #### Chocolate Detail - Add Stock
 
-<img src="assets/add_stock.png" width="98%" />
-<img src="assets/add_stock_succeed.png" width="98%" />
-<img src="assets/add_stock_mobile.png" width="32%" />
+1. Halaman Add Stock<br>
+<img src="assets/add_stock.png" width="98%" /><br>
+2. Halaman Add Stock saat penambahan stock berhasil<br>
+<img src="assets/add_stock_succeed.png" width="98%" /><br>
+3. Halaman Add Stock di perangkat dengan layar kecil<br>
+<img src="assets/add_stock_mobile.png" width="32%" /><br>
 
 ### Transaction History Page
 1. Halaman Transaction History<br>
