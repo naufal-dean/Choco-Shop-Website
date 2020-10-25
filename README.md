@@ -92,7 +92,32 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ### Search Result page
 
+<img src="assets/search.png" width="98%" />
+<img src="assets/search_mobile.png" width="32%" />
+<img src="assets/search_not_found.png" width="98%" />
+<img src="assets/search_not_found_mobile.png" width="32%" />
+
 ### Chocolate Detail page
+
+#### Chocolate Detail - User
+
+<img src="assets/detail_user.png" width="98%" />
+<img src="assets/detail_user_mobile.png" width="32%" />
+
+#### Chocolate Detail - Buy Chocolate
+
+<img src="assets/detail_superuser.png" width="98%" />
+<img src="assets/detail_superuser_mobile.png" width="32%" />
+
+#### Chocolate Detail - Superuser
+
+<img src="assets/buy.png" width="98%" />
+<img src="assets/buy_mobile.png" width="32%" />
+
+#### Chocolate Detail - Add Stock
+
+<img src="assets/add_stock.png" width="98%" />
+<img src="assets/add_stock_mobile.png" width="32%" />
 
 ### Transaction History Page
 1. Halaman Transaction History<br>
