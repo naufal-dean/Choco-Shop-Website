@@ -32,5 +32,6 @@ function incAmount() {
 }
 
 function goBack() {
-    location.href = "."
+    // /detail_chocolate/([1-9]*)/add/
+    location.href = "/detail_chocolate/" + getUrlPartAtPos(1)
 }
