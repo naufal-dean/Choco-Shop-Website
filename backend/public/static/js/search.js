@@ -63,6 +63,7 @@ function getChocolates(page, async=true) {
                 descriptionValue.textContent = chocolate['description']
                 info.appendChild(descriptionValue)
             })
+            document.getElementById('nav-search').value = name
             window.scrollTo({ top: 0, behavior: 'smooth' })
         }
     }
