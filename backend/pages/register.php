@@ -3,6 +3,7 @@
     <head>
         <title>Register - Choco Shop</title>
         <link rel="stylesheet" href="static/css/form.css">
+        <link rel="icon" href="/static/images/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
