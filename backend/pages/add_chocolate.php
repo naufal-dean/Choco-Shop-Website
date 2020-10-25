@@ -38,6 +38,6 @@
           <input class="form_input" type='submit' value='Add Chocolate'>
         </form>
       </div>
-      <script src="static/js/responsive.js"></script>
+      <script src="/static/js/responsive.js"></script>
     </body>
 </html>
