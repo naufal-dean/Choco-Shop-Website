@@ -34,8 +34,12 @@ class ChocolateController extends Controller
     }
 
     public function find_chocolates() {
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE name LIKE CONCAT("%",?,"%") LIMIT 10;');
-        $res->bind_param('s', $_GET['name']);
+        if (empty($_GET['page']) || !ctype_digit(strval($_GET['page']))) {
+            return $this->respondError('Please enter a correct page number', null, 400);
+        }
+        $offset = ($_GET['page']-1)*10;
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE name LIKE CONCAT("%",?,"%") LIMIT ?, 10;');
+        $res->bind_param('si', $_GET['name'], $offset);
         $res->execute();
         $res = $res->get_result()->fetch_all(MYSQLI_ASSOC);
         if ($res === false) {

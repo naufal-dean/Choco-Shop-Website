@@ -32,8 +32,3 @@ Router::get('/search/', 'PageController@search_page');
 Router::get('/detail_chocolate/([1-9]*)/', 'PageController@detail_chocolate_page');
 Router::get('/detail_chocolate/([1-9]*)/add/', 'PageController@add_stock_chocolate_page');
 Router::get('/detail_chocolate/([1-9]*)/buy/', 'PageController@buy_chocolate_page');
-
-# Testing purposes
-Router::get('/uri/', 'Controller@test');
-Router::post('/uri/', 'Controller@test2');
-Router::get('/uri/([1-9]*)/', 'Controller@test');
