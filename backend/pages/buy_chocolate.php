@@ -13,7 +13,7 @@
             <?php
             echo '
                     <div class="chocolate-detail-name">
-                        <h2>'.$chocolate['name'].'</h2>
+                        <h2>Buy Chocolate</h2>
                     </div>
                     <form id="buy-form" onsubmit="callBuy(event)">
                         <div class="chocolate-detail-body">
@@ -22,31 +22,40 @@
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>
-                                    <li><span>Amount sold:</span> '.$chocolate['sold'].'</li>
-                                    <li><span>Price:</span> Rp '.$chocolate['price'].',00</li>
-                                    <li><span>Amount:</span> '.$chocolate['stock'].'</li>
-                                    <li><span>Description:</span> '.$chocolate['description'].'</li>
+                                    <li><h3>'.$chocolate['name'].'</h3></li>
+                                    <li><span class="label-form">Amount sold:</span> '.$chocolate['sold'].'</li>
+                                    <li><span class="label-form">Price:</span> Rp <span id="price">'.$chocolate['price'].'</span>,00</li>
+                                    <li><span class="label-form">Amount remaining:</span> '.$chocolate['stock'].'</li>
+                                    <li><span class="label-form">Description:</span> '.$chocolate['description'].'</li>
                                     <li>
-                                        <ul>
-                                            <li><span>Amount to Buy:</span></li>
-                                            <li class="chocolate-detail-amount">
-                                                <div>
-                                                    <input id="dec-amount" type="button" onclick="decAmount()" value="-">
-                                                </div>
-                                                <div>
-                                                    <input class="amount-input" type="text" id="amount" name="amount" required>
-                                                </div>
-                                                <div>
-                                                    <input id="inc-amount" type="button" onclick="incAmount()" value="+">
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <div class="amount-price-box">
+                                            <ul class="amount-box">
+                                                <li><span class="label-form">Amount to Buy:</span></li>
+                                                <li class="chocolate-detail-amount">
+                                                    <div>
+                                                        <input id="dec-amount" type="button" onclick="decAmount()" value="-">
+                                                    </div>
+                                                    <div>
+                                                        <input class="amount-input" type="text" id="amount" name="amount" value="0" required readonly>
+                                                    </div>
+                                                    <div>
+                                                        <input id="inc-amount" type="button" onclick="incAmount()" value="+">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <ul class="total-price-box">
+                                                <li><span class="label-form">Total Price:</span></li>
+                                                <li class="chocolate-detail-total-price">
+                                                    Rp <span id="total-price">0</span>,00
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="chocolate-detail-address">
-                            <label class="form-input-label" for="address"><span>Address:</span></label><br>
+                            <label class="form-input-label" for="address"><span class="label-form">Address:</span></label><br>
                             <textarea class="form-input-box" id="address" name="address" form="buy-form" required></textarea><br>
                         </div>
                         <div class="chocolate-detail-option">

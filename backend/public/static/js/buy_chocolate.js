@@ -1,8 +1,8 @@
 function callBuy(e) {
     e.preventDefault()
-    var amount = document.getElementById("amount").value
-    var address = document.getElementById("address").value
-    var xhr = new XMLHttpRequest()
+    let amount = document.getElementById("amount").value
+    let address = document.getElementById("address").value
+    let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
@@ -21,17 +21,27 @@ function callBuy(e) {
 }
 
 function decAmount() {
-    var amount = parseInt(document.getElementById("amount").value)
+    let amount = parseInt(document.getElementById("amount").value)
     amount = isNaN(amount) ? 0 : amount
     document.getElementById("amount").value = amount > 0 ? --amount : 0
+    updateTotalPrice()
 }
 
 function incAmount() {
-    var amount = parseInt(document.getElementById("amount").value)
+    let amount = parseInt(document.getElementById("amount").value)
     amount = isNaN(amount) ? 0 : amount
     document.getElementById("amount").value = ++amount
+    updateTotalPrice()
 }
 
 function goBack() {
     location.href = "."
+}
+
+function updateTotalPrice() {
+    let price = parseInt(document.getElementById("price").innerHTML)
+    price = isNaN(price) ? 0 : price
+    let amount = parseInt(document.getElementById("amount").value)
+    amount = isNaN(amount) ? 0 : amount
+    document.getElementById("total-price").innerHTML = (price * amount).toString()
 }

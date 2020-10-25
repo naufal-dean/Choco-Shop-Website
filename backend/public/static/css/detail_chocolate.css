@@ -27,7 +27,7 @@ body {
 }
 
 .chocolate-detail-desc > ul,
-.chocolate-detail-desc > ul > li > ul {
+.amount-price-box > ul {
     list-style-type: none;
     margin: 0;
 }
@@ -36,8 +36,26 @@ body {
     margin: 10px 0;
 }
 
-.chocolate-detail-desc > ul > li > ul {
+.chocolate-detail-desc > ul > li > h3 {
+    color: #654321;
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.amount-price-box {
+    display: flex;
+}
+
+.amount-price-box > ul {
     padding: 0;
+}
+
+.amount-input {
+    width: 75px;
+}
+
+.total-price-box > li {
+    padding-left: 20px;
 }
 
 .chocolate-detail-amount {
@@ -53,8 +71,8 @@ body {
     width: 100%;
 }
 
-.chocolate-detail-desc > ul span,
-.chocolate-detail-address span {
+.chocolate-detail-desc > ul .label-form,
+.chocolate-detail-address .label-form {
     color: #654321;
     font-weight: bold;
 }
