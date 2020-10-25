@@ -18,14 +18,17 @@
                     <form id="buy-form" onsubmit="callBuy(event)">
                         <div class="chocolate-detail-body">
                             <div class="chocolate-detail-img">
-                                <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
+                                <img class="chocolate-detail-img"
+                                    src="/static/images/chocolates/chocolate_'
+                                    .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
+                                    alt="'.$chocolate['name'].'">
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>
                                     <li><h3>'.$chocolate['name'].'</h3></li>
                                     <li><span class="label-form">Amount sold:</span> '.$chocolate['sold'].'</li>
                                     <li><span class="label-form">Price:</span> Rp <span id="price">'.$chocolate['price'].'</span>,00</li>
-                                    <li><span class="label-form">Amount remaining:</span> '.$chocolate['stock'].'</li>
+                                    <li><span class="label-form">Amount remaining:</span> <span id="stock">'.$chocolate['stock'].'</span></li>
                                     <li><span class="label-form">Description:</span> '.$chocolate['description'].'</li>
                                     <li>
                                         <div class="amount-price-box">
