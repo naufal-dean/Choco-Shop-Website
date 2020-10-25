@@ -86,22 +86,22 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ### Login Page
 1. Halaman Login<br>
-<img src="assets/login.png" width="98%" />
+<img src="assets/login.png" width="98%" /><br>
 2. Halaman Login di perangkat dengan layar kecil<br>
-<img src="assets/login_mobile.png" width="32%" />
+<img src="assets/login_mobile.png" width="32%" /><br>
 
 ### Register Page
 1. Halaman Register<br>
-<img src="assets/register.png" width="98%" />
+<img src="assets/register.png" width="98%" /><br>
 2. Halaman Register di perangkat dengan layar kecil<br>
-<img src="assets/register_mobile.png" width="32%" />
+<img src="assets/register_mobile.png" width="32%" /><br>
 
 ### Dashboard page
 1. Halaman Dashboard<br>
-<img src="assets/dashboard.png" width="98%" />
+<img src="assets/dashboard.png" width="98%" /><br>
 2. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
 <img src="assets/dashboard_mobile.png" width="32%" />
-<img src="assets/navbar_mobile.png" width="32%" />
+<img src="assets/navbar_mobile.png" width="32%" /><br>
 
 ### Search Result page
 
