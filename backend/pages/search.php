@@ -9,6 +9,11 @@
     <body>
         <?php $nav_page = ''; include __DIR__.'/../components/header.php'; ?>
         <div id="chocolates-search-container">
+            <?php
+                if (!$total_pages) {
+                    echo "No chocolate found with name '".htmlspecialchars($_GET['name'])."'.";
+                }
+            ?>
         </div>
         <div id="page-nav" class="hidden">
             <?php
