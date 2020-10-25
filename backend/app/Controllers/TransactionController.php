@@ -25,11 +25,13 @@ class TransactionController extends Controller
         $offset = isset($_GET['offset']) ? $_GET['offset'] : 0;
         $count = isset($_GET['count']) ? $_GET['count'] : 1;
 
-        $res2 = \DatabaseConnection::prepare_query('SELECT * FROM transaction WHERE user_id = ? ORDER BY transaction_date DESC LIMIT ?, ?;');
+        $res2 = \DatabaseConnection::prepare_query('
+            SELECT * FROM transaction JOIN chocolate ON (transaction.chocolate = chocolate.id) WHERE user_id = ? ORDER BY transaction_date DESC LIMIT ?, ?;
+        ');
         $res2->bind_param('iii', $user_id, $offset, $count);
 
         if ($res2->execute()) {
-            $data = $res2->get_result()->fetch_all();
+            $data = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
             $res2->free_result();
             return $this->respondSuccess('Success', $data, 200);
         } else {
