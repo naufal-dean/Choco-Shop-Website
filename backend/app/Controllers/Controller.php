@@ -13,7 +13,7 @@ class Controller
             header('Location: /login');
             exit();
         }
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 HOUR);');
         $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();

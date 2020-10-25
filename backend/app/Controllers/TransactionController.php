@@ -5,7 +5,7 @@ namespace App\Controllers;
 class TransactionController extends Controller
 {
     private function get_user_info() {
-        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 DAY);');
+        $res = \DatabaseConnection::prepare_query('SELECT * FROM user WHERE access_token = BINARY ? and token_creation_time > DATE_SUB(now(), INTERVAL 1 HOUR);');
         $res->bind_param('s', $_COOKIE['CHOCO_SESSION']);
         $res->execute();
         $data = $res->get_result()->fetch_assoc();

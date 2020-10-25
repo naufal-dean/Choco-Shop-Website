@@ -28,12 +28,6 @@ class UserController extends Controller
             return $this->respondError('Login failed', null, 401);
         }
 
-        # Get token (Need to discuss whether we just replace or get the old ones)
-        // $res = \DatabaseConnection::prepare_query('SELECT id, username, email FROM user WHERE username = BINARY ? and token_creation_time <= now();');
-        // $res->bind_param('ss', $_POST['username']);
-        // $res->execute();
-        // $res = $res->get_result()->fetch_assoc();
-
         # Generate token
         $token = bin2hex(openssl_random_pseudo_bytes(32));
 
