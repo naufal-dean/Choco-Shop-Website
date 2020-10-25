@@ -39,23 +39,23 @@ Perlu diingat bahwa tata letak komponen harus mengikuti desain dari Jan.
 
 ### Transaction History Page
 1. Halaman Transaction History<br>
-<img src="assets/transaction_history_5.png" width="98%" title=""/>
+<img src="assets/transaction_history_5.png" width="98%" title=""/><br>
 2. Halaman Transaction History dengan pengaturan transaksi per halaman yang berbeda<br>
-<img src="assets/transaction_history_10.png" width="98%" />
+<img src="assets/transaction_history_10.png" width="98%" /><br>
 3. Halaman Transaction History di perangkat dengan layar kecil<br>
 <img src="assets/transaction_history_5_mobile.png" width="32%" />
 <img src="assets/transaction_history_5_mobile_scrolled.png" width="32%" />
-<img src="assets/transaction_history_10_mobile.png" width="32%" />
+<img src="assets/transaction_history_10_mobile.png" width="32%" /><br>
 
 ### Add New Chocolate Page
 
 1. Halaman Add New Chocolate<br>
-<img src="assets/add_new_chocolate.png" width="98%" />
+<img src="assets/add_new_chocolate.png" width="98%" /><br>
 2. Halaman Add New Chocolate setelah menekan tombol Add Chocolate<br>
-<img src="assets/add_new_chocolate_success.png" width="98%" />
+<img src="assets/add_new_chocolate_success.png" width="98%" /><br>
 3. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
 <img src="assets/add_new_chocolate_mobile.png" width="49%" />
-<img src="assets/add_new_chocolate_success_mobile.png" width="49%" />
+<img src="assets/add_new_chocolate_success_mobile.png" width="49%" /><br>
 
 ### Access Token Expiry Time
 
