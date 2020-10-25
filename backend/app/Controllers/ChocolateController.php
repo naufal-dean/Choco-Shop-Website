@@ -13,11 +13,18 @@ class ChocolateController extends Controller
     }
 
     public function id_lookup() {
-        $id = explode('/', $_SERVER['REQUEST_URI'])[2];
+        // get choco id
+        $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $arr = explode('/', rtrim($path, '/'));
+        $id = $arr[count($arr) - 1];
+
+        // exec query
         $res = \DatabaseConnection::prepare_query('SELECT * FROM chocolate WHERE id = ?;');
         $res->bind_param('i', $id);
         $res->execute();
         $res = $res->get_result()->fetch_assoc();
+
+        // return
         if ($res === false) {
             return $this->respondError('Database on server is not properly setup?', null, 500);
         } else if (!$res) {
@@ -120,7 +127,6 @@ class ChocolateController extends Controller
         return $this->respondSuccess('Chocolate stock added successfully', $chocolates[0], 200);
     }
 
-    // TODO: Update chocolate data & Create transaction
     public function buy_chocolate() {
         // TODO: check auth
 
