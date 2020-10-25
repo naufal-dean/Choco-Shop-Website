@@ -82,7 +82,7 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 6. Buka alamat `localhost` di browser. Atau `localhost:<port>` jika port default Apache server dari XAMPP telah diubah.
 7. Website siap digunakan.
 
-## Daftar Halaman
+## Daftar Fitur
 
 ### Login Page
 
@@ -141,9 +141,15 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 ### Access Token Expiry Time
 
+Ketika pengguna melakukan login, pengguna tersebut hanya akan dianggap login selama satu jam. Setelah satu jam pengguna tersebut akan perlu melakukan login ulang.
+
 ### Real-Time Stock Update
 
+Angka coklat yang tersedia pada halaman pembelian coklat akan selalu diperbarui setiap satu detik dengan AJAX.
+
 ### Responsive View
+
+Ketika lebar layar lebih kecil dari suatu batas tertentu, layout dari navigation bar dan konten pada setiap halaman akan berubah untuk menyesuaikan.
 
 ## Anggota Kelompok
 
