@@ -49,10 +49,7 @@ class ChocolateController extends Controller
     }
 
     public function add_chocolate() {
-        // name varchar(100),
-        // price int,
-        // description varchar(500),
-        // stock int,
+        $user_info = $this->check_auth();
         $res = \DatabaseConnection::prepare_query('INSERT INTO chocolate (name, price, description, image_file_type, stock, sold) VALUES (?, ?, ?, ?, ?, 0);');
         if ($res) {
             if (array_key_exists('image', $_FILES) && ($_FILES['image']['error'] == UPLOAD_ERR_OK)) {

@@ -74,3 +74,4 @@ getChocolates(1, false)
 var nav = document.getElementById("page-nav")
 nav.classList.toggle("hidden")
 nav.classList.toggle("flex")
+document.getElementById('nav-search').value = name
