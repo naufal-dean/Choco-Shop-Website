@@ -85,6 +85,7 @@ class Router
                 exit();
             }
         }
+        include("../pages/404.php");
         http_response_code(404);
         exit();
     }
