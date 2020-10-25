@@ -85,10 +85,23 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 ## Daftar Fitur
 
 ### Login Page
+1. Halaman Login<br>
+<img src="assets/login.png" width="98%" /><br>
+2. Halaman Login di perangkat dengan layar kecil<br>
+<img src="assets/login_mobile.png" width="32%" /><br>
 
 ### Register Page
+1. Halaman Register<br>
+<img src="assets/register.png" width="98%" /><br>
+2. Halaman Register di perangkat dengan layar kecil<br>
+<img src="assets/register_mobile.png" width="32%" /><br>
 
 ### Dashboard page
+1. Halaman Dashboard<br>
+<img src="assets/dashboard.png" width="98%" /><br>
+2. Halaman Add New Chocolate di perangkat dengan layar kecil<br>
+<img src="assets/dashboard_mobile.png" width="32%" />
+<img src="assets/navbar_mobile.png" width="32%" /><br>
 
 ### Search Result page
 
@@ -106,17 +119,19 @@ DocumentRoot "E:/KULIAH/SEMESTER 5/Pengembangan Aplikasi Berbasis Web/Tubes/1/tu
 
 #### Chocolate Detail - Buy Chocolate
 
-<img src="assets/detail_superuser.png" width="98%" />
-<img src="assets/detail_superuser_mobile.png" width="32%" />
+<img src="assets/buy.png" width="98%" />
+<img src="assets/buy_succeed.png" width="98%" />
+<img src="assets/buy_mobile.png" width="32%" />
 
 #### Chocolate Detail - Superuser
 
-<img src="assets/buy.png" width="98%" />
-<img src="assets/buy_mobile.png" width="32%" />
+<img src="assets/detail_superuser.png" width="98%" />
+<img src="assets/detail_superuser_mobile.png" width="32%" />
 
 #### Chocolate Detail - Add Stock
 
 <img src="assets/add_stock.png" width="98%" />
+<img src="assets/add_stock_succeed.png" width="98%" />
 <img src="assets/add_stock_mobile.png" width="32%" />
 
 ### Transaction History Page
@@ -153,7 +168,7 @@ Ketika lebar layar lebih kecil dari suatu batas tertentu, layout dari navigation
 
 ## Anggota Kelompok
 
-1. Yonatan Viody (13518148)
+1. Yonatan Viody (13518120)
 2. Naufal Dean Anugrah (13518123)
 3. Muhammad Rizky Ismail Faizal (13518148)
 
