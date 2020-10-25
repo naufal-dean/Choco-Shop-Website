@@ -68,11 +68,12 @@ body {
 
 .chocolate-search-desc {
     padding-left: 40px;
+    width: 70%;
 }
 
 .chocolate-search-desc p {
     margin: 0;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 #page-nav {
@@ -155,8 +156,10 @@ body {
 
     .chocolate-search-desc {
         padding-left: 20px;
+        width: 100%;
     }
     .chocolate-search-desc p {
+        margin-top: 10px;
         white-space: pre-wrap;
     }
 }
