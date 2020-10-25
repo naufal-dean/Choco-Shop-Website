@@ -13,6 +13,6 @@
         <?php if (isset($message_title)) {echo '<h1>'.$message_title.'</h1>';} ?>
         <?php if (isset($message_content)) {echo '<p>'.$message_content.'</p>';} ?>
       </div>
-      <script src="static/js/responsive.js"></script>
+      <script src="/static/js/responsive.js"></script>
     </body>
 </html>
