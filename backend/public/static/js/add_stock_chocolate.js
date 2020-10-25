@@ -4,16 +4,17 @@ function callAddStock(e) {
     var xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
-            // if (this.status == 200) {
-            //     console.log('succeed')
-            //     location.href = "."
-            // } else {
-            //     console.log('failed')
-            //     location.href = "."
-            // }
+            if (this.status == 200) {
+                console.log('succeed')
+                // location.href = "."
+            } else {
+                console.log('failed')
+                // location.href = "."
+            }
         }
     }
-    xhr.open("PUT", "/api/chocolates/1/add")
+    // /detail_chocolate/([1-9]*)/add/
+    xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/add")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}`)
 }

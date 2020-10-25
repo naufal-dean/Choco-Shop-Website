@@ -27,7 +27,8 @@ body {
 }
 
 .chocolate-detail-desc > ul,
-.amount-price-box > ul {
+.amount-price-box > ul,
+.amount-only-box > ul {
     list-style-type: none;
     margin: 0;
 }
@@ -46,7 +47,8 @@ body {
     display: flex;
 }
 
-.amount-price-box > ul {
+.amount-price-box > ul,
+.amount-only-box > ul {
     padding: 0;
 }
 
