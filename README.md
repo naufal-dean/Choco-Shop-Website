@@ -3,7 +3,7 @@
 ## Deskripsi Aplikasi Web
 Aplikasi website digunakan sebagai website untuk menjual coklat. Pada aplikasi web ini, terdapat 2 jenis pengguna, yaitu superuser dan user. Kedua pengguna dapat melakukan akun, login, logout, pencarian produk, dan mendapatkan penjelasan produk secara detail. User dapat melakukan pembelian produk dan melihat riwayat pembelian produk. Superuser adalah admin yang dapat menambah jenis coklat baru yang ingin dijual dan menambah ketersediaan coklat, serta mengakses apa yang bisa diakses oleh user. Untuk seorang pengguna yang belum melakukan login, pengguna hanya dapat menampilkan halaman login & register, namun bisa menampilkan penjelasan produk secara langsung melalui backend (namun tidak dapat mengubah data).
 
-Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile.
+Aplikasi website ini berjalan di atas PHP, bersamaan dengan penggunaan HTML, JS, dan CSS, dan tersedia dengan tampilan komputer/laptop dan mobile. Adapun beberapa definisi tambahan yang kami gunakan pada aplikasi website tersebut, yaitu access token dan cookie untuk login memiliki expiry time 1 jam, real-time refresh stock dilakukan setiap 1 detik, dan pagination pada search page memiliki jumlah 10 coklat per halaman.
 
 ## Requirements
 -
