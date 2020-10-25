@@ -18,7 +18,10 @@
                     <form id="add-stock-form" onsubmit="callAddStock(event)">
                         <div class="chocolate-detail-body">
                             <div class="chocolate-detail-img">
-                                <img class="chocolate-image" src="static/images/'.$chocolate['id'].'">
+                                <img class="chocolate-detail-img" 
+                                    src="/static/images/chocolates/chocolate_'
+                                    .$chocolate['id'].'.'.$chocolate['image_file_type'].'"
+                                    alt="'.$chocolate['name'].'">
                             </div>
                             <div class="chocolate-detail-desc">
                                 <ul>

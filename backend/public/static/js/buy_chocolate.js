@@ -29,8 +29,9 @@ function decAmount() {
 
 function incAmount() {
     let amount = parseInt(document.getElementById("amount").value)
+    let stock = parseInt(document.getElementById("stock").innerHTML)
     amount = isNaN(amount) ? 0 : amount
-    document.getElementById("amount").value = ++amount
+    document.getElementById("amount").value = amount < stock ? ++amount : amount
     updateTotalPrice()
 }
 
