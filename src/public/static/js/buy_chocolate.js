@@ -13,7 +13,7 @@ function callBuy(e) {
         }
     }
     // /detail_chocolate/([1-9]*)/buy/
-    xhr.open("PUT", "/api/chocolates/" + getUrlPartAtPos(1) + "/buy")
+    xhr.open("POST", "/api/chocolates/" + getUrlPartAtPos(1) + "/buy")
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     xhr.send(`amount=${amount}&address=${address}`)
     // reset form

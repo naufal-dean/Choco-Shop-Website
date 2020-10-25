@@ -15,8 +15,8 @@ Router::get('/api/chocolates/', 'ChocolateController@show_top_selling_chocolates
 Router::get('/api/chocolates/([0-9]+)/', 'ChocolateController@id_lookup');
 Router::get('/api/chocolates/find/', 'ChocolateController@find_chocolates');
 Router::post('/api/chocolates/add/', 'ChocolateController@add_chocolate');
-Router::put('/api/chocolates/([0-9]+)/add', 'ChocolateController@add_stock_chocolate');
-Router::put('/api/chocolates/([0-9]+)/buy', 'ChocolateController@buy_chocolate');
+Router::post('/api/chocolates/([0-9]+)/add', 'ChocolateController@add_stock_chocolate');
+Router::post('/api/chocolates/([0-9]+)/buy', 'ChocolateController@buy_chocolate');
 
 # Transactions Api
 Router::get('/api/transactions/', 'TransactionController@get_user_transactions');

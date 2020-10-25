@@ -83,14 +83,11 @@ class ChocolateController extends Controller
         // check auth
         $user_info = $this->check_auth(true);
 
-        // get input
-        parse_str(file_get_contents("php://input"), $input);
-
         // check input
-        if (!isset($input['amount'])) {
+        if (!isset($_POST['amount'])) {
             return $this->respondError('Please enter add stock amount', null, 400);
         }
-        if ((int) $input['amount'] <= 0) {
+        if ((int) $_POST['amount'] <= 0) {
             return $this->respondError('Please enter positive add stock amount', null, 400);
         }
 
@@ -113,7 +110,7 @@ class ChocolateController extends Controller
 
         // update choco
         $chocolate = $chocolates[0];
-        $new_stock = (int) $chocolate['stock'] + (int) $input['amount'];
+        $new_stock = (int) $chocolate['stock'] + (int) $_POST['amount'];
         $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ? WHERE id = ?;');
         $res_2->bind_param('ii', $new_stock, $id);
         $res_2->execute();
@@ -133,14 +130,11 @@ class ChocolateController extends Controller
         // check auth
         $user_info = $this->check_auth();
 
-        // get input
-        parse_str(file_get_contents("php://input"), $input);
-
         // check input
-        if (!isset($input['amount']) || !isset($input['address'])) {
+        if (!isset($_POST['amount']) || !isset($_POST['address'])) {
             return $this->respondError('Please enter buy amount and address', null, 400);
         }
-        if ((int) $input['amount'] <= 0) {
+        if ((int) $_POST['amount'] <= 0) {
             return $this->respondError('Please enter positive buy amount', null, 400);
         }
 
@@ -163,13 +157,13 @@ class ChocolateController extends Controller
 
         // check choco stock
         $chocolate = $chocolates[0];
-        if ((int) $input['amount'] > $chocolate['stock']) {
+        if ((int) $_POST['amount'] > $chocolate['stock']) {
             return $this->respondError('The chocolate stock is not enough', null, 400);
         }
 
         // update choco
-        $new_stock = (int) $chocolate['stock'] - (int) $input['amount'];
-        $new_sold = (int) $chocolate['sold'] + (int) $input['amount'];
+        $new_stock = (int) $chocolate['stock'] - (int) $_POST['amount'];
+        $new_sold = (int) $chocolate['sold'] + (int) $_POST['amount'];
         $res_2 = \DatabaseConnection::prepare_query('UPDATE chocolate SET stock = ?, sold = ? WHERE id = ?;');
         $res_2->bind_param('iii', $new_stock, $new_sold, $id);
         $res_2->execute();
@@ -177,11 +171,11 @@ class ChocolateController extends Controller
         // create transaction
         $res_3 = \DatabaseConnection::prepare_query('INSERT INTO transaction (user_id, chocolate, amount, total_price, address, transaction_date, transaction_time) VALUES (?, ?, ?, ?, ?, ?, ?)');
         $user_id = (int) $user_info['id'];
-        $amount = (int) $input['amount'];
+        $amount = (int) $_POST['amount'];
         $total_price = (int) $chocolate['price'] * $amount;
         $date = date('Y-m-d');
         $time = date('H:i:s');
-        $res_3->bind_param('iiiisss', $user_id, $id, $amount, $total_price, $input['address'], $date, $time);
+        $res_3->bind_param('iiiisss', $user_id, $id, $amount, $total_price, $_POST['address'], $date, $time);
         $res_3->execute();
 
         // return
