@@ -83,7 +83,8 @@ class ChocolateController extends Controller
     }
 
     public function add_stock_chocolate() {
-        // TODO: check auth
+        // check auth
+        $user_info = $this->check_auth();
 
         // get input
         parse_str(file_get_contents("php://input"), $input);
@@ -132,7 +133,8 @@ class ChocolateController extends Controller
     }
 
     public function buy_chocolate() {
-        // TODO: check auth
+        // check auth
+        $user_info = $this->check_auth();
 
         // get input
         parse_str(file_get_contents("php://input"), $input);
@@ -177,7 +179,7 @@ class ChocolateController extends Controller
 
         // create transaction
         $res_3 = \DatabaseConnection::prepare_query('INSERT INTO transaction (user_id, chocolate, amount, total_price, address, transaction_date, transaction_time) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $user_id = 1; // TODO: get user id
+        $user_id = (int) $user_info['id'];
         $amount = (int) $input['amount'];
         $total_price = (int) $chocolate['price'] * $amount;
         $date = date('Y-m-d');
