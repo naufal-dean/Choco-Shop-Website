@@ -109,3 +109,17 @@ body {
     transition: all ease-in-out 250ms;
 }
 
+@media (max-width: 600px) {
+    .chocolate-detail-name {
+        text-align: center;
+    }
+
+    .chocolate-detail-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chocolate-detail-option {
+        justify-content: center;
+    }
+}
