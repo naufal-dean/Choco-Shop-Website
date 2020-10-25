@@ -84,7 +84,7 @@ class ChocolateController extends Controller
 
     public function add_stock_chocolate() {
         // check auth
-        $user_info = $this->check_auth();
+        $user_info = $this->check_auth(true);
 
         // get input
         parse_str(file_get_contents("php://input"), $input);
